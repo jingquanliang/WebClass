@@ -809,7 +809,7 @@ ul, ol {
 
 /*防止用户多次点击*/
 #catalog-overlay {
-    display: none;
+    /*display: none;*/
     position: absolute;
     z-index: 20000;
     top: 0;
