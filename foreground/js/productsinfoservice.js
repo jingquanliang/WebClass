@@ -24,7 +24,19 @@ function getTotalNumber(map,categoryid,startPrice,endPrice,change) {
 	});
 	return totalNumber;
 }
+
+function unactiveWindowModle()
+{
+	$("#catalog-overlay").css("display","");
+}
+
+function activeWindowModle()
+{
+	$("#catalog-overlay").css("display","none");
+}
+
 function getProducts(nowPage,map,categoryid,startPrice,endPrice) {
+	unactiveWindowModle(); //是页面不可操作，知道产生商品信息
 	var data = $.toJSON(map.elements);
 	var html = "";
 	$.post("category/productfilter_getProducts.action", {initPage:nowPage,Args:data,categoryid:categoryid,startPrice:startPrice,endPrice:endPrice},     
@@ -38,6 +50,7 @@ function getProducts(nowPage,map,categoryid,startPrice,endPrice) {
 						"<a href='client/productShow.action?id="+productVO.products.p_id+"'>' class='orange'>"+calculateFeeByExchangeRate(productVO.products.p_nowprice,currencyRate)+"</a></li>";
 			});
 			$("#sellerul").append(html);
+			activeWindowModle(); //使页面可操作
 		},"json");
 
 	return;
@@ -53,6 +66,7 @@ function getProducts(nowPage,map,categoryid,startPrice,endPrice) {
  * @param endPrice
  */
 function getBaseProducts(url,nowPage,map,categoryid,startPrice,endPrice) {
+	unactiveWindowModle(); //是页面不可操作，知道产生商品信息
 	var htmldata = "";
 	$.post("category/productfilter_"+url+".action",{initPage:nowPage,categoryid:categoryid,startPrice:startPrice,endPrice:endPrice},
 	function(data) {
@@ -67,6 +81,7 @@ function getBaseProducts(url,nowPage,map,categoryid,startPrice,endPrice) {
 			htmldata += "</li>";
 		});
 		$("#sellerul").append(htmldata);
+		activeWindowModle(); //使页面可操作
 	});
 	return;
 }

@@ -481,7 +481,8 @@ function registerEventLister()
 			    return;
 			}
 			handlePageClick(clickPageNumber,this,currentPageElement);
-			getPageData(clickPageNumber,map,categoryid,startPrice,endPrice,change);// 加载相应的数据
+			getPageData(clickPageNumber,map,categoryid,startPrice,endPrice,change);
+			// 加载相应的数据，productinfoservice。js ；change in productattributesearch.js
 			return false;
 		}// end of function
 	
