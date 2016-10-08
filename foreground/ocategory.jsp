@@ -56,7 +56,7 @@
 		handleCategoryFloorTitle(routeCategoryFloorTitle);////获取分类 secondlevelpage.js
 		getNavigation(categoryid);  //获取分类 secondlevelpage.js
 		getRollImage(categoryid);   //secondlevelpage.js
-		getAllAttribute(categoryid);
+		getAllAttribute(categoryid);  //productattributesearch.js
 		getExhibitionProducts(0,map,categoryid,0,2147483647);   //map is in productattributesearch.js
 		registEvents(categoryid);//注册事件，productsinfoservice.js，主要注册的是点击属性 的事件
 		buildPageTable(totalNumber);  // pagelabelconstruct.js
