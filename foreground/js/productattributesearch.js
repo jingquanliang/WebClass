@@ -93,16 +93,42 @@ function getAllAttribute(categoryid) {
 	$.getJSON("category/category_getAllAttribute.action?categoryid="+categoryid, function(data) {
 		var html = "";
 		$.each(data, function(index,atrv) {
-			html += "<div class='propAttrs'><div class='j_Prop attr hotspot' data-mindiffrow='2'>";
-			html += "<div class='attrKey' atrid='"+atrv.atr.attrId+"'>"+atrv.atr.attrName+"</div>";
-			html += "<div class='attrValues'>";
-			html += "<ul class='av-collapse'>";
+			
+			html += "<div class='filterblock wbsize show'>";
+			//属性名字
+			html += "<div class='filter-title'>";
+			html += "<i class='arrow-icon arrow-icon-open'></i>"+atrv.atr.attrName+"<a class='reset'>Сбросить</a>";
+			html += "</div>";
+				
+			//属性值
+			html += "<div class='selectorsblock custom-scroll'>";
+			html += "<ul id='wbsize_list_left' style='opacity: 1;'>";
+			
+			//属性值
 			$.each(atrv.valueList, function(index,value) {
-				html += "<li  class='test'><a atrid='"+value.atrValue.attrId+"' atrvid='"+value.atrValue.attrValueId+"' href='javascript:void(0)'>"+value.atrValue.attrValueName+"</a></li>";
+				html += "<li class=''><a><i class='pseudocheckbox'></i>"+value.atrValue.attrValueName+"<span style='display: none;'>(5)</span></a></li>";
 			});
-			html += "</ul></div></div></div>";
+			html += "</ul><div class='progress' style='display: none;'></div></div>";					
+			
+			
+			
+			
+//			html += "<div class='propAttrs'><div class='j_Prop attr hotspot' data-mindiffrow='2'>";
+//			html += "<div class='attrKey' atrid='"+atrv.atr.attrId+"'>"+atrv.atr.attrName+"</div>";
+//			html += "<div class='attrValues'>";
+//			html += "<ul class='av-collapse'>";
+//			//属性值
+//			$.each(atrv.valueList, function(index,value) {
+//				html += "<li  class='test'><a atrid='"+value.atrValue.attrId+"' atrvid='"+value.atrValue.attrValueId+"' href='javascript:void(0)'>"+value.atrValue.attrValueName+"</a></li>";
+//			});
+			
+			
+			html += "</div>";
+		
+		
+		
 		});
-		$("#allatr").append(html);
+		$("#filterPanelLeft").append(html);
 	});
 	
 }

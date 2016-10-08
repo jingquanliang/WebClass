@@ -380,7 +380,7 @@ function registerEventLister()
 {
 	
 	/*点击具体属性时的动作*/
-	$(".selectorsblock ").on("click","li",
+	$("#filterPanelLeft ").on("click","li",
 		function(){
 			var classString=$(this).attr("class");
 			if(classString.indexOf("selected") != -1)
@@ -401,7 +401,7 @@ function registerEventLister()
 	
 	
 	/*点击属性折叠按钮时的动作*/
-	$(".filterblock").on("click",".filter-title",
+	$("#filterPanelLeft").on("click",".filter-title",
 		function(){
 			var classString=$(this).parents(".filterblock").attr("class");
 			if(classString.indexOf("filter-active") != -1)
