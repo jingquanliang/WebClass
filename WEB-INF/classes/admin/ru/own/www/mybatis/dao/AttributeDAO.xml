@@ -12,6 +12,7 @@
 	<resultMap type="admin.ru.own.www.vo.AttributeVO" id="atrmv">
 		<result property="catecoryName" column="category_name"/>
 		<association property="atr" resultMap="atr"/>
+		<!-- 调用另一个类中的select语句 -->
 		<collection property="valueList" javaType="ArrayList" column="{lanID=lan_id,attrID=attr_id}"  ofType="AttributeValueVO" select="admin.ru.own.www.mybatis.dao.AttrValueMapper.getMultiAttributeValues"></collection>
 	</resultMap>
 	
@@ -49,10 +50,10 @@
 		own.category as c ,
 		own.attributemultilanguage as am
 		where a.is_search_attr = 1
+		and a.category_id = #{categoryID}
 		and a.category_id = c.category_id
 		and am.attr_id = a.attr_id
 		and am.lan_id = #{lanID}
-		and a.category_id = #{categoryID}
 	</select>
 	
 	<select id="getOneAttribute" parameterType="int" resultMap="atr">

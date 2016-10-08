@@ -704,6 +704,15 @@ ul, ol {
     line-height: 18px;
 }
 
+.selectorsblock li:hover {
+    background: #d9d9d9;
+}
+
+.selectorsblock ul>.selected, .selectorsblock ul>.selected a {
+    background-color: #d9d9d9;
+    color: #272727;
+}
+
 .selectorsblock a {
     text-decoration: none;
     color: #272727;

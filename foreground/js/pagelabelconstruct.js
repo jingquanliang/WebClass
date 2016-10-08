@@ -378,6 +378,28 @@ function genernateMiddRightListData(realLeftNumCount,clickPageNumber,allPageNumb
  */
 function registerEventLister()
 {
+	
+	/*点击具体属性时的动作*/
+	$(".selectorsblock ").on("click","li",
+		function(){
+			var classString=$(this).attr("class");
+			if(classString.indexOf("selected") != -1)
+			{//已经被选中，转为不选中
+				$(this).removeClass("selected");
+				
+			}
+			else
+			{
+				$(this).addClass("selected");
+			}
+
+			
+		}
+	
+	);
+	
+	
+	
 	/*点击属性折叠按钮时的动作*/
 	$(".filterblock").on("click",".filter-title",
 		function(){
