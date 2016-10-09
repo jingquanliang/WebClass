@@ -379,7 +379,7 @@ display: inline-block;
 }
 
 .crumbSlide-con li {
-padding-left: 9px;
+padding-left: 5px;
 float: left;
 margin-bottom: 4px;
 }
@@ -411,6 +411,7 @@ height: 7px;
 overflow: hidden;
 background: url(../img/delete.png) no-repeat;
 background-position: -20px 0;
+margin-left: 5px;
 }
 
 
@@ -440,7 +441,7 @@ text-decoration: none;
 #seller{width:100%;/*height:390px;*/margin:15px auto;}
 
 #seller ul{width:100%;/*float:left;*/}
-#seller ul li{/*width:163px;height:195px;*/margin: 11px; display: inline-block;    text-align: left;/*float:left;*/}
+#seller ul li{/*width:163px;height:195px;*/margin:3px; display: inline-block;    text-align: left;/*float:left;*/}
 #seller ul li a{display:inline-block; padding-bottom:6px;}
 #seller ul li a.productTitle{word-break: break-all;overflow: hidden;height: 14px;line-height: 20px;}
 #seller ul li a span{ text-decoration:line-through; display:inline-block; padding-right:5px;}

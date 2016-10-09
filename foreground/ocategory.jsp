@@ -7,7 +7,7 @@
 			+ path + "/";
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <base href="<%=basePath%>">
@@ -107,7 +107,7 @@
 					<div class="categoryTips breadcrumbs" id="categoryFloorTitle">
 
 					</div>
-					<div id="shopping">
+					<div id="shopping" style="display: none;">
 						<div id="selectContainer">
 				
 							<span id="selectAttrs">
@@ -153,7 +153,43 @@
 	</div>
 	<!-- ----------------------------------------------------------------------------------- -->
 	<!-- ----------------------------------防止用户在查询期间多次点击------------------------------------------------- -->
-	<div id="catalog-overlay" style="display: none; "></div>
+	<style type="text/css">
+		.mvBox{height:15px; background:#F5FAFD url(images/test2.jpg) no-repeat left center; width:471px; position:relative; padding:0 30px; margin:0 auto;}
+		.mvBtn{position:absolute; left:50px; top:0;}
+		.mvTxt{height:50px; line-height:50px; width:531px; text-align:center; font-size:30px; color:#29B6FF; font-family:Arial; margin:0 auto;}
+	</style>
+	
+	<div id="catalog-overlay" style="display: none; ">
+		<!--效果开始-->
+		<!-- 
+		<div style="padding:50px;">
+			
+			<div class="mvTxt">Loading<span class="mvSq">.</span><span class="mvSq">.</span><span class="mvSq">.</span></div>
+			<div class="mvBox">
+			 <img class="mvBtn" src="images/loadingImages/test1.jpg" />
+			</div>
+			<script language="javascript">
+			 var delVal=50;
+			 function autoMove(){
+				 delVal++;
+				 if(delVal>400){
+					delVal=50; 
+				 }
+				 $(".mvBtn").css("left",delVal);
+			 }
+			 setInterval(autoMove,8);
+			 var deNum=0;
+			 function autoTsq(){
+				$(".mvSq").css("color","#F5FAFD");
+				setTimeout(function(){$(".mvSq").eq(0).css("color","#29B6FF")},0);
+				setTimeout(function(){$(".mvSq").eq(1).css("color","#29B6FF")},500);
+				setTimeout(function(){$(".mvSq").eq(2).css("color","#29B6FF")},1000);
+			 }
+			 setInterval(autoTsq,1500);
+			</script> -->
+			<!--End-->
+		</div>
+	</div>
  </div>
 </body>
 </html>

@@ -1,15 +1,51 @@
 /***********************global variables********************************************/
 var flag = 0;//当点击更多标签时的事件
 var map = null;  //存储属性信息，在属性查找时使用
-var change = false;  // 表明检索的属性是否改变？？
+var change = false;  //表示是否有过滤属性
 /*******************************************************************/
 $(document).ready(function() {
 	map = new Map();
 });
-function addAttributeLabel(selectString,elem) {
+function addAttributeLabel(selectString,elem) 
+{
 	var appendString = "<li class='crumbAttr'><span class='selectAttrValue'>"+ selectString+ "</span><span atrid='"+elem.attr("atrid")+"' atrvid='"+elem.attr("atrvid")+"' class='crumbDelete'></span> </li>";
 	$(".crumbSlide-con").append(appendString);
-	getPageData(0,map,categoryid,startPrice,endPrice,true);
+	getPageData(0,map,categoryid,startPrice,endPrice,true); //根据属性查找商品信息，productinfoservice。js
+}
+
+
+function clickAttrValueToAdd(obj) 
+{ //点击相应的属性时，把属性添加页面上
+	$("#shopping").css("display","");  //显示点击属性的地方可以显示
+	var selectString = $(obj).children("a").attr("atrvname");  //得到属性值的名字
+	var elem = $(obj).children("a");
+	
+	if(map.get(elem.attr("atrid"))==null)
+	{//MAP 中还没有此属性信息
+		var atrArgs = new List();
+		map.put(elem.attr("atrid"), atrArgs);
+		atrArgs.add(elem.attr("atrvid"));
+		addAttributeLabel(selectString,elem);
+	} 
+	else 
+	{//MAP 中有此属性信息
+		var atrArgs = map.get(elem.attr("atrid"));
+		if(!atrArgs.constains(elem.attr("atrvid"))) 
+		{//不包含此属性值，才进行添加
+			atrArgs.add(elem.attr("atrvid"));
+			addAttributeLabel(selectString,elem);
+		}
+		else
+			return; //已经有次属性，直接返回
+	}
+	
+	if(map.size()!=0)
+	{
+		change = true; //表示是否有过滤属性
+		totalNumber = getTotalNumber(map,categoryid,startPrice,endPrice,change);
+		buildPageTable(totalNumber);
+	}
+	return;
 }
 
 /**
@@ -18,53 +54,85 @@ function addAttributeLabel(selectString,elem) {
  */
 function registEvents(categoryid)
 {
-	$("div.j_NavAttrs").on("click","li",function() { //点击相应的属性时，把属性添加上页面上
-		var selectString = $(this).children("a").html();
-		var elem = $(this).children("a");
-		
-		if(map.get(elem.attr("atrid"))==null){
-			var atrArgs = new List();
-			map.put(elem.attr("atrid"), atrArgs);
-			atrArgs.add(elem.attr("atrvid"));
-			addAttributeLabel(selectString,elem);
-		} else {
-			var atrArgs = map.get(elem.attr("atrid"));
-			if(!atrArgs.constains(elem.attr("atrvid"))) {
-				atrArgs.add(elem.attr("atrvid"));
-				addAttributeLabel(selectString,elem);
+	
+	/*点击属性折叠按钮时的动作*/
+	$("#filterPanelLeft").on("click",".filter-title",
+		function(){
+			var classString=$(this).parents(".filterblock").attr("class");
+			if(classString.indexOf("filter-active") != -1)
+			{//已经显示，转为不显示
+//				$(this).parents(".filterblock").children(".selectorsblock").css("display","none");
+				$(this).parents(".filterblock").removeClass("filter-active");
+				$(this).parents(".filterblock").find(".arrow-icon").addClass("arrow-icon-open");
+				
 			}
-		}
-		
-		if(map.size()!=0){
-			change = true;
-			totalNumber = getTotalNumber(map,categoryid,startPrice,endPrice,change);
-			buildPageTable(totalNumber);
-		}
-		return;
-	});
+			else
+			{
+				$(this).parents(".filterblock").addClass("filter-active");
+				$(this).parents(".filterblock").find(".arrow-icon").removeClass("arrow-icon-open");
+			}
 
-	$("#selectAttrs").on("click", ".crumbDelete", function() { // 点击删除按钮时移除选择的属性
-		var elem = $(this);
-		if(map.get(elem.attr("atrid"))!=null){
-			var atrArgs = map.get(elem.attr("atrid"));
-			atrArgs.remove(atrArgs.getIndex(elem.attr("atrvid")));
-			if(atrArgs.size()==0){
-				map.remove(elem.attr("atrid"));
+			
+		}
+	
+	);
+	
+	/*点击具体属性时的动作*/
+	$("#filterPanelLeft ").on("click","li",
+		function(){
+			var classString=$(this).attr("class");
+			if(classString.indexOf("selected") != -1)
+			{//已经被选中，转为不选中
+				$(this).removeClass("selected");
+				
 			}
+			else
+			{//选中
+				$(this).addClass("selected");
+				clickAttrValueToAdd(this); 
+			}
+
+			
 		}
-		
-		if(map.size()==0){
-			change = false;
-			$("#sellerul").empty();
-			getPageData(0,map,categoryid,startPrice,endPrice,false);
-		} else{
-			getPageData(0,map,categoryid,startPrice,endPrice,true);
-		}
-		totalNumber = getTotalNumber(map,categoryid,startPrice,endPrice,change);
-		buildPageTable(totalNumber);
-		$(this).parent(".crumbAttr").remove();
-		return;
+	
+	);
+	
+
+
+	$("#selectAttrs").on("click", ".crumbDelete", function() 
+	{ // 点击删除按钮时移除选择的属性
+		clickAttrValueToDel(this);
 	});
+}
+
+function clickAttrValueToDel(obj)
+{//点击删除按钮时，把选择的属性值删除
+	var elem = $(obj);
+	if(map.get(elem.attr("atrid"))!=null)
+	{
+		var atrArgs = map.get(elem.attr("atrid"));  //根据属性id从map中查找 获取value，也就是属性值列表
+		atrArgs.remove(atrArgs.getIndex(elem.attr("atrvid")));  //在属性值列表中，删除这个属性值
+		if(atrArgs.size()==0)
+		{//如果属性值列表等于0，删除该属性
+			map.remove(elem.attr("atrid"));
+		}
+	}
+	
+	if(map.size()==0)
+	{
+		$("#shopping").css("display","none");  //没有属性值可以显示，隐藏掉
+		change = false;  //是否有相应的用户过滤属性
+		$("#sellerul").empty();
+		getPageData(0,map,categoryid,startPrice,endPrice,false);
+	} 
+	else
+	{
+		getPageData(0,map,categoryid,startPrice,endPrice,true);
+	}
+	totalNumber = getTotalNumber(map,categoryid,startPrice,endPrice,change);
+	buildPageTable(totalNumber);
+	$(obj).parent(".crumbAttr").remove();
+	return;
 }
 
 /**
@@ -106,7 +174,7 @@ function getAllAttribute(categoryid) {
 			
 			//属性值
 			$.each(atrv.valueList, function(index,value) {
-				html += "<li class=''><a><i class='pseudocheckbox'></i>"+value.atrValue.attrValueName+"<span style='display: none;'>(5)</span></a></li>";
+				html += "<li class=''><a atrid='"+atrv.atr.attrId+"' atrvid='"+value.atrValue.attrValueId+"' atrvname='"+value.atrValue.attrValueName+"' href='javascript:void(0)'>"+"<i class='pseudocheckbox'></i>"+value.atrValue.attrValueName+"<span style='display: none;'>(5)</span></a></li>";
 			});
 			html += "</ul><div class='progress' style='display: none;'></div></div>";					
 			
