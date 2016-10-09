@@ -12,10 +12,14 @@
     	<foreach item="item" index="index" collection="categoryIDs" open="(" separator="," close=")">
 		#{item}
 		</foreach> 
-    	and product_basic_attr.attr_value_id in 
-		<foreach item="item" index="index" collection="atrValues" open="(" separator="," close=")">
-		#{item}
-		</foreach> group by p_id desc limit #{begain},#{size}
+		
+		<if test="atrValues != null">
+	    	and product_basic_attr.attr_value_id in 
+			<foreach item="item" index="index" collection="atrValues" open="(" separator="," close=")">
+				#{item}
+			</foreach> 
+		</if>
+		group by p_id desc limit #{begain},#{size}
 		<!-- group by p_id desc having count(*) > #{atrNum} limit #{begain},#{size}--> 
 		<!-- 以上这句话中的 atrNum 传进来的值为 属性值的个数减去1，为了保证取出来的p_id唯一 ，和DISTINCT作用一样-->
     </select>

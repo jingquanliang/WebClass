@@ -38,6 +38,7 @@
 	var categoryid = ${categoryid}; //点击的category的id
 	var totalNumber = ${totalNumber};
 	var routeCategoryFloorTitle="${route}";
+	var attrStr="${attrStr}"; //属性值信息
 	
 	var imageheight = ${categoryExhibitionSize.height};
 	var imagewidth = ${categoryExhibitionSize.width};
@@ -56,12 +57,13 @@
 		handleCategoryFloorTitle(routeCategoryFloorTitle);////获取分类 secondlevelpage.js
 		getNavigation(categoryid);  //获取分类 secondlevelpage.js
 		getRollImage(categoryid);   //在secondlevelpage.js
-		getAllAttribute(categoryid);  //在productattributesearch.js
-		getExhibitionProducts(0,map,categoryid,0,2147483647);   //map is in productattributesearch.js
+		
 		registEvents(categoryid);//注册事件，productsinfoservice.js，主要注册的是点击属性 的事件
 		buildPageTable(totalNumber);  // pagelabelconstruct.js
 		registerEventLister();//上一页  下一页  的动作  pagelabelconstruct.js
 		registerPriceLister(false);//价格区间  pricerange.js
+		
+		getAllAttribute(categoryid);  //在productattributesearch.js,在这里同时获取商品信息，因为获取商品需要基于属性信息
 	});
 </script>
 </head>

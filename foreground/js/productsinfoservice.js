@@ -106,8 +106,6 @@ function getProducts(nowPage,map,categoryid,startPrice,endPrice) {
 			$("#sellerul").append(html);
 			activeWindowModle(); //使页面可操作
 			
-//			window.history.pushState({},0,'http://'+window.location.host+'/343434'); 
-			
 		},"json");
 
 	return;
@@ -124,8 +122,9 @@ function getProducts(nowPage,map,categoryid,startPrice,endPrice) {
  */
 function getBaseProducts(url,nowPage,map,categoryid,startPrice,endPrice) {
 	unactiveWindowModle(); //是页面不可操作，知道产生商品信息
+	var data = $.toJSON(map.elements);
 	var htmldata = "";
-	$.post("category/productfilter_"+url+".action",{initPage:nowPage,categoryid:categoryid,startPrice:startPrice,endPrice:endPrice},
+	$.post("category/productfilter_"+"getProducts"+".action",{initPage:nowPage,Args:data,categoryid:categoryid,startPrice:startPrice,endPrice:endPrice},
 	function(data) {
 		$("#sellerul").empty();
 		$.each(data, function(index,atrv) {
@@ -161,8 +160,11 @@ function getNewProducts(nowPage,map,categoryid,startPrice,endPrice) {
  */
 function getExhibitionProducts(nowPage,map,categoryid,startPrice,endPrice)
 {//
-	getBaseProducts("getExhibitionProducts",nowPage,map,categoryid,startPrice,endPrice);
+//	getBaseProducts("getExhibitionProducts",nowPage,map,categoryid,startPrice,endPrice);
+	getProducts(nowPage,map,categoryid,startPrice,endPrice);
 }
+
+//这里需要优化!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function getPageData(nowPage,map,categoryid,startPrice,endPrice,change)
 {
 	if(change==false) 
