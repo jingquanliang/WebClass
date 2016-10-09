@@ -8,7 +8,8 @@ $(document).ready(function() {
 });
 function addAttributeLabel(selectString,elem) 
 {
-	var appendString = "<li class='crumbAttr'><span class='selectAttrValue'>"+ selectString+ "</span><span atrid='"+elem.attr("atrid")+"' atrvid='"+elem.attr("atrvid")+"' class='crumbDelete'></span> </li>";
+	var eleId="top-"+elem.attr("atrid")+"-"+elem.attr("atrvid");
+	var appendString = "<li id='"+eleId+"' class='crumbAttr'><span class='selectAttrValue'>"+ selectString+ "</span><span atrid='"+elem.attr("atrid")+"' atrvid='"+elem.attr("atrvid")+"' class='crumbDelete'></span> </li>";
 	$(".crumbSlide-con").append(appendString);
 	getPageData(0,map,categoryid,startPrice,endPrice,true); //根据属性查找商品信息，productinfoservice。js
 }
@@ -85,6 +86,10 @@ function registEvents(categoryid)
 			{//已经被选中，转为不选中
 				$(this).removeClass("selected");
 				
+				attrtopToDel($(this).attr("atrid"),$(this).attr("atrvid"));//把上边的商品属性取消掉
+				
+				clickAttrValueToDel(this);
+				
 			}
 			else
 			{//选中
@@ -105,9 +110,37 @@ function registEvents(categoryid)
 	});
 }
 
+/**
+ * 点击左边显示的商品属相过滤按钮时
+ * 把右边的商品属性选中状态取消掉
+ * @param atrid
+ * @param atrvid
+ */
+function attrtopToDel(atrid,atrvid)
+{
+	var eleId="top-"+atrid+"-"+atrvid;
+	$("#"+eleId).remove();
+}
+
+/**
+ * 点击上边显示的商品属相过滤按钮时
+ * 把左边的商品属性选中状态取消掉
+ * @param atrid
+ * @param atrvid
+ */
+function attrLeftToDel(atrid,atrvid)
+{
+	var eleId="left-"+atrid+"-"+atrvid;
+	$("#"+eleId).removeClass("selected");
+}
+
 function clickAttrValueToDel(obj)
 {//点击删除按钮时，把选择的属性值删除
+	
 	var elem = $(obj);
+	
+	attrLeftToDel(elem.attr("atrid"),elem.attr("atrvid")); //把左边的商品属性选中状态取消掉
+	
 	if(map.get(elem.attr("atrid"))!=null)
 	{
 		var atrArgs = map.get(elem.attr("atrid"));  //根据属性id从map中查找 获取value，也就是属性值列表
@@ -174,7 +207,8 @@ function getAllAttribute(categoryid) {
 			
 			//属性值
 			$.each(atrv.valueList, function(index,value) {
-				html += "<li class=''><a atrid='"+atrv.atr.attrId+"' atrvid='"+value.atrValue.attrValueId+"' atrvname='"+value.atrValue.attrValueName+"' href='javascript:void(0)'>"+"<i class='pseudocheckbox'></i>"+value.atrValue.attrValueName+"<span style='display: none;'>(5)</span></a></li>";
+				var eleId="left-"+atrv.atr.attrId+"-"+value.atrValue.attrValueId;
+				html += "<li atrid='"+atrv.atr.attrId+"' atrvid='"+value.atrValue.attrValueId+"'  id='"+eleId+"' class=''><a atrid='"+atrv.atr.attrId+"' atrvid='"+value.atrValue.attrValueId+"' atrvname='"+value.atrValue.attrValueName+"' href='javascript:void(0)'>"+"<i class='pseudocheckbox'></i>"+value.atrValue.attrValueName+"<span style='display: none;'>(5)</span></a></li>";
 			});
 			html += "</ul><div class='progress' style='display: none;'></div></div>";					
 			
