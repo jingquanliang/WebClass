@@ -211,24 +211,7 @@ function getAllAttribute(categoryid) {
 				html += "<li atrid='"+atrv.atr.attrId+"' atrvid='"+value.atrValue.attrValueId+"'  id='"+eleId+"' class=''><a atrid='"+atrv.atr.attrId+"' atrvid='"+value.atrValue.attrValueId+"' atrvname='"+value.atrValue.attrValueName+"' href='javascript:void(0)'>"+"<i class='pseudocheckbox'></i>"+value.atrValue.attrValueName+"<span style='display: none;'>(5)</span></a></li>";
 			});
 			html += "</ul><div class='progress' style='display: none;'></div></div>";					
-			
-			
-			
-			
-//			html += "<div class='propAttrs'><div class='j_Prop attr hotspot' data-mindiffrow='2'>";
-//			html += "<div class='attrKey' atrid='"+atrv.atr.attrId+"'>"+atrv.atr.attrName+"</div>";
-//			html += "<div class='attrValues'>";
-//			html += "<ul class='av-collapse'>";
-//			//属性值
-//			$.each(atrv.valueList, function(index,value) {
-//				html += "<li  class='test'><a atrid='"+value.atrValue.attrId+"' atrvid='"+value.atrValue.attrValueId+"' href='javascript:void(0)'>"+value.atrValue.attrValueName+"</a></li>";
-//			});
-			
-			
 			html += "</div>";
-		
-		
-		
 		});
 		$("#filterPanelLeft").append(html);
 	});
