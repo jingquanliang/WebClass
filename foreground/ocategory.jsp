@@ -36,7 +36,7 @@
 <script type="text/javascript" src="js/math.js"></script>
 <script type="text/javascript" >
 	var categoryid = ${categoryid}; //点击的category的id
-	var totalNumber = ${totalNumber};
+	var totalNumber = ${totalPageNumber};
 	var routeCategoryFloorTitle="${route}";
 	var attrStr="${attrStr}"; //属性值信息
 	
