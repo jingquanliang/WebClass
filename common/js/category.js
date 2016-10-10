@@ -29,8 +29,10 @@ function loadCategory()
 		},
 		success : function(data) 
 		{
-			insertCategoryInPage(data); //首页，全部商品分类下拉菜单
-			insertCategoryFloors(data); //首页楼层动态图
+			insertCategoryInPage(data.ccs); //首页，全部商品分类下拉菜单
+			insertCategoryFloors(data.ccs); //首页楼层动态图
+			
+			var bannerCategory=data.banner;
 		}
 	});// end of ajax
 }
