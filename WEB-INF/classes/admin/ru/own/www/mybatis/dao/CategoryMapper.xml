@@ -17,8 +17,9 @@
 
 	<update id="updateCateBasicInfo" parameterType="admin.ru.own.www.entity.Category"
 		flushCache="true" timeout="20">
-		update category set category_name=#{categoryName},imagesize=#{imagesize},is_show=#{isShow},is_inFloorshow=#{isInFloorshow} where
-		category_id=#{categoryId}
+		update category set category_name=#{categoryName},imagesize=#{imagesize},is_show=#{isShow},is_inFloorshow=#{isInFloorshow},
+		
+		 is_inBannershow=#{isInBannershow} where category_id=#{categoryId}
 	</update>
 	
 	<update id="updateCateBasicImage" parameterType="admin.ru.own.www.entity.Category"
