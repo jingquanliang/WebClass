@@ -9,19 +9,33 @@ var count=0;//计数器，楼层右面的分类是否到达了10个。
 function registerEventsforMenu()
 {
 	
-	$("#lagout-two-headeritems > li").hover(function() { 
-			$(this).addClass("hover"); 
-		
-		}, function() { 
-			$(this).removeClass("hover"); 
-	});
+//	$("#lagout-two-headeritems > li").hover(function() { 
+//			$(this).addClass("hover"); 
+//		
+//		}, function() { 
+//			$(this).removeClass("hover"); 
+//	});
+//	
+//	$("#lagout-two-headeritems > li > ul").hover(function() { 
+//		$(this).parent("").addClass("hover"); 
+//	
+//		}, function() { 
+//			$(this).parent("").removeClass("hover"); 
+//	});
 	
-	$("#lagout-two-headeritems > li > ul").hover(function() { 
-		$(this).parent("").addClass("hover"); 
-	
-	}, function() { 
-		$(this).parent("").removeClass("hover"); 
-});
+	  $("#lagout-two-headeritems > li").on('mouseenter',
+			  function(){ 
+		  
+		  			$(this).addClass("hover"); 
+		  
+	  
+	  			}).on('mouseleave',
+			  function(){ 
+	  				
+	  				$(this).removeClass("hover"); 
+	  		  
+	  		});  
+	  
 	
 	
 }
@@ -53,7 +67,6 @@ function loadCategory()
 			insertCategoryInPage(data.ccs); //首页，全部商品分类下拉菜单
 			insertCategoryFloors(data.ccs); //首页楼层动态图
 			
-//			var bannerCategory=data.banner;
 			insertCategoryInBanner(data.banner);
 			registerEventsforMenu();
 		}
