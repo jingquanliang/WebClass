@@ -1,8 +1,8 @@
 @charset "utf-8";
 /*lagout-two*/
-#lagout-two{/*width:1190px;*/width:100%; height:35px; margin:0 auto;}
+#lagout-two{width:1190px; height:35px; margin:0 auto;}
 #lagout-two .lagout-two-l{float:left; height:33px;font-size:14px;}
-#lagout-two .lagout-two-l-header{margin-left: 200px;}
+#lagout-two .lagout-two-l-header{margin-left: 190px;}
 .lagout-two-l li.headeritem{ float:left; height:33px; line-height:33px;position: relative;}
 .lagout-two-l li.headeritem a.oneitem{padding:0 15px; color:#000; height:33px; display:inline-block;float:left;}
 
