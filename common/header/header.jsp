@@ -19,8 +19,8 @@
 			        <li class="headeritem"><a class="oneitem" href="#"><s:text name="www.product.new"></s:text></a></li>
 			        <li class="headeritem"><a class="oneitem" href="#"><s:text name="www.product.hot"></s:text></a></li>
 			        <li class="headeritem"><a class="oneitem" href="#"><s:text name="www.product.recommand"></s:text></a></li>
-			        --><li class="headeritem"><a class="oneitem" href="#"><s:text name="www.brand.all"></s:text></a></li>
-			       
+			        <li class="headeritem"><a class="oneitem" href="#"><s:text name="www.brand.all"></s:text></a></li>
+			       -->
 			      </ul>
 			      <div class="lagout-two-r">
 			      	<!-- 
