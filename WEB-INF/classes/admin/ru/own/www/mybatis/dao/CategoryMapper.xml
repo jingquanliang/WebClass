@@ -110,7 +110,7 @@
     <select id="getBannerShowCategory"  resultMap="clientShowCategory">
         select c.category_id,c.icon,c.image,c.is_show,c.is_inFloorshow,c.is_inBannershow,cm.foreign_name,cm.lan_id,cm.foreign_title,cm.foreign_keywords,cm.foreign_description 
         from category c, categorymultilanguage cm 
-        where c.is_show =1 and c.is_inBannershow = 1 and cm.lan_id = #{lanid} and c.category_id=cm.category_id;
+        where c.is_show =1 and c.category_father_id = 1  and c.is_inBannershow = 1 and cm.lan_id = #{lanid} and c.category_id=cm.category_id;
     </select>
     
          
