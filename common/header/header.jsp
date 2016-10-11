@@ -28,7 +28,7 @@
 			         <a href="#" class="txt">会员俱乐部</a>
 			         <a href="#" class="txt">消费者保障</a>
 			          -->
-			    </div>
+			      </div>
 			  </div>
 		</div>
 	</body>
