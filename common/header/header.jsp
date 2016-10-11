@@ -13,7 +13,7 @@
 	<body>
 		<div id="top-menu" style="">
 			  <div id="lagout-two">
-			      <ul id="lagout-two-headeritems" class="lagout-two-l lagout-two-l-header">
+			      <ul id="lagout-two-headeritems" class="indexheader lagout-two-l lagout-two-l-header">
 			        <!-- 
 			        <li class="headeritem"><a class="oneitem" href="#"><s:text name="www.web.home"></s:text></a></li>
 			        <li class="headeritem"><a class="oneitem" href="#"><s:text name="www.product.new"></s:text></a></li>

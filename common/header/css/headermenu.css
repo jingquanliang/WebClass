@@ -465,7 +465,8 @@ background-color: #e8e8e8;
 
 /*导航栏部分*/
 #top-menu{
-	margin-bottom: -6px;
+	/*margin-bottom: -6px;*/
+	position: relative;
 }
 
 #lagout-two>ul>li>ul {
