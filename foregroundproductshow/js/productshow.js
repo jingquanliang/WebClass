@@ -86,8 +86,8 @@ function loadProductBasicInfo(id)
 			insertProductAttrs13InfoInPage(data.productvo.pBasic_Attrs13);//插入基本属性
 			genertSkuDataInfo(data.productvo.psku);
 			insertShippingCountryInfoInPage(data.sc,defaultShippingCountryId); //defaultShippingCountryId is in the productshow.jsp
-			insertShippingInfoInPage(data.ssvo,data.productvo.products);
-			insertShowShippingInfoInPage();//插入显示的货运信息
+			insertShippingInfoInPage(data.ssvo,data.productvo.products); //插入相应国家的物流列表等信息
+			insertShowShippingInfoInPage();//插入显示的货运信息  在商品展示的右边插入货运信息
 		}
 	});// end of ajax
 }
@@ -1025,6 +1025,9 @@ function productShowShippingRegister()
 	});
 }
 
+/**
+ *  修改货运信息
+ */
 function modifyShippingInfoInPage()
 {
 	var selectNumber=$("#buy-num").val(); //商品数量
@@ -1035,6 +1038,7 @@ function modifyShippingInfoInPage()
 		//country
 		selectCountryName=countryIdNameMap[selectCountryId];
 	}
+
 	
 	if(tempSelectShipId!=0&&tempSelectShipId!=null&&tempSelectShipId!=undefined)
 	{
@@ -1113,6 +1117,12 @@ function requestShippingInfoByCountryIdAndTemplateId(countryId,templetId)
 		success : function(data) 
 		{
 			selectCountryShippingInfo=data.ssvo;
+			if(selectCountryShippingInfo==null)
+			{
+				selectShipName=null; //没有货运方式可以选择
+				selectRealFee=null; //没有货运方式可以选择，运费自然也是null了
+			}
+			
 			insertShippingInfoInPage(data.ssvo,products);
 		}
 	});// end of ajax
