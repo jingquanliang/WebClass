@@ -76,9 +76,9 @@ muiSetAmount.add=function(obj){
 muiSetAmount.reduce=function(obj){
 	var number=$(obj).val();
 	number--;
-	if(0>=number)
+	if(number<p_minbuyamount) //p_minbuyamount in productshow.js
 	{
-		number=1;
+		number=p_minbuyamount;
 	}
 	$(obj).val(number);
 };
@@ -89,7 +89,7 @@ muiSetAmount.modify=function(obj){
 	 if(!reg.test(number))
 	 {  
 		 number="1";
-		 $(obj).val(number);
+		 $(obj).val(p_minbuyamount); //p_minbuyamount in productshow.js
 	 }  
 };
 

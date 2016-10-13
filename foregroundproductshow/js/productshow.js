@@ -1,4 +1,6 @@
 ///////////////////////////////////////////////global variables
+var p_minbuyamount=1;//最小购买量，默认为1
+
 var skuAttrId=[];//just save the attrId that support sku
 var attrNameIds=[]; //save the id of all attribute name
 var attrIdNameObj={};//save the map of attrId and Name
@@ -634,7 +636,7 @@ function insertProductBasicInfoInPage(products)
 	var p_id=products.p_id;
 	var p_jifen=products.p_jifen;
 	var p_storenumber=products.p_storenumber;
-	var p_minbuyamount=products.p_minbuyamount;
+	p_minbuyamount=products.p_minbuyamount;
 	var p_weight=products.p_weight;
 	var p_name=products.p_name;
 	var p_nowprice=products.p_nowprice;
@@ -644,6 +646,9 @@ function insertProductBasicInfoInPage(products)
 	var title=products.title;
 	var keywords=products.keywords;
 	var description=products.description;
+	
+	//商品最小购买量
+	$("#buy-num").val(p_minbuyamount);
 	
 	//商品名称和描述
 	$("#name").children("h1").html(p_name);
