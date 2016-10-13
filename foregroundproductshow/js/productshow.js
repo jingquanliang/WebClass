@@ -750,6 +750,8 @@ function insertProductImageInPage(data)
 {
 	var insertHtml="";
 	var images=data.pimg;
+	images.sort(function(a,b){
+          return a.imageSort-b.imageSort;});
 	var len=images.length;
 	for(var i=0;i<len;i++)
 	{
@@ -757,7 +759,7 @@ function insertProductImageInPage(data)
 		var imageAddr=ele.imageAddr;
 		insertHtml+="<li><img  class='' src='"+imageAddr+"' width='50' height='50' ></li>";
 		var imageSort=ele.imageSort;
-		if(imageSort==1)
+		if(imageSort==1||(imageSort!=1&&len==1))
 		{
 			//$("#product-big-img").attr("src",imageAddr);
 			mui_ProductBigImage(imageAddr); //mui_replaceSmallImage is in product.image.js
