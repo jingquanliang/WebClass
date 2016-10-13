@@ -100,8 +100,8 @@ function getProducts(nowPage,map,categoryid,startPrice,endPrice) {
 				html += "<li><a href='client/productShow.action?id="+productVO.products.p_id+"'>" +
 						"<img src='"+productVO.showURL+"' width='"+imagewidth+"' height='"+imageheight+"' /> </a> <br/>" +
 						"<a class='productTitle' href='client/productShow.action?id="+productVO.products.p_id+"' style='width: "+imagewidth+"px;'>"+productVO.products.p_name+"</a><br/>" +
-						"<a href='client/productShow.action?id="+productVO.products.p_id+"'><span>"+currencySymbol+calculateFeeByExchangeRate(productVO.products.p_originprice,currencyRate)+"</span></a>"+currencySymbol;
-						"<a href='client/productShow.action?id="+productVO.products.p_id+"'>' class='orange'>"+calculateFeeByExchangeRate(productVO.products.p_nowprice,currencyRate)+"</a></li>";
+						"<a href='client/productShow.action?id="+productVO.products.p_id+"'><span>"+currencySymbol+calculateFeeByExchangeRate(productVO.products.p_originprice,currencyRate)+"</span></a>"+currencySymbol+
+						"<a href='client/productShow.action?id="+productVO.products.p_id+"' class='orange'>"+calculateFeeByExchangeRate(productVO.products.p_nowprice,currencyRate)+"</a></li>";
 			});
 			$("#sellerul").append(html);
 			activeWindowModle(); //使页面可操作
