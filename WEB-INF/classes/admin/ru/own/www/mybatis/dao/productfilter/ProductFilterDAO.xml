@@ -10,7 +10,7 @@
 	 <!-- 有属性过滤，查询商品 -->
 	 <select id="getIndexProductsLimit" parameterType="map" resultType="int">
     	SELECT DISTINCT products.p_id FROM own.product_basic_attr,own.products 
-    	where p.p_status=1 and products.p_id=product_basic_attr.p_id
+    	where products.p_status=1 and products.p_id=product_basic_attr.p_id
     	and products.p_nowprice &gt;= #{startPrice} 
     	and products.p_nowprice &lt;= #{endPrice} 
     	and products.p_categoryid in
