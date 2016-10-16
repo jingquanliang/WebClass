@@ -12,7 +12,7 @@
 <head>
 <base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>京东</title>
+<title>999own</title>
 
 <!-- header以下布局 -->
 <link href="common/css/secondstyle.css" rel="stylesheet" type="text/css" />
@@ -32,10 +32,41 @@
 <!-- ------------------------------和本网页相关--------------------------------------- -->
 
 <link href="usermanage/css/expressJoin.css" rel="stylesheet" type="text/css" />
+
+<link href="usermanage/css/silder.css" rel="stylesheet" type="text/css" />
         
 <script type="text/javascript" src="usermanage/js/express.join.js"></script>
 
+<script type="text/javascript" src="usermanage/js/silder.js"></script>
 
+<script type="text/javascript">
+
+	//about lanuage
+	var temp=<%=session.getAttribute("languageId")%>;
+	var selectLanguageId =parseInt(temp);   //选择的语言id  
+	
+	//错误码
+	var codeError=<s:property value='codeError'/>;
+	function checkCodeError(data)
+	{
+		if(codeError==1)
+		{
+			$("#checkcode-tipbox").removeClass("hide");
+		}
+		else if(codeError==2)
+		{
+			$("#name-tipbox").removeClass("hide");
+		}
+		else if(codeError==3)
+		{
+			$("#email-tipbox").removeClass("hide");
+		}
+	}
+	$(document).ready(function(){
+		checkCodeError();
+		getShowLanguage();
+	});
+</script>
 		
 <!-- ------------------------------和本网页相关--------------------------------------- -->
 
@@ -57,7 +88,7 @@
 			<div class="bg-gray">
 			    <div id="header" class="header">
 			        <div class="logo">
-			            <a href="http://www.aliexpress.com" title="http://www.aliexpress.com">http://www.aliexpress.com</a>
+			            <a href="http://www.999own.ru" title="http://www.999own.ru">http://www.999own.ru</a>
 			            <p>Smarter Shopping, Better Living!</p>
 			        </div>
 			
@@ -70,7 +101,15 @@
 				           <div class="left-form">
 				                <div class="form-head">
 				                    <h2>Create a New Account</h2>
+				                   
 				                    <div>Already a Member? <a href="login.jsp" id="member-signin" class="member-signin" style="color: #06c;">Sign in</a></div>
+								
+									 <ul class="quick-menu">
+				                    	<li class="downmenu languagedownmenu">  <!-- languagedownmenu -->
+                       					</li>
+				                     </ul>
+				                     
+				                     
 								</div>
 				
 				                <div class="form-detail">

@@ -82,7 +82,11 @@
 	                        <ul class="entries">
 	                            
 	                            
-	                            <li id="registerUrl_1" class="register"><a id="J_RegisterLink1" href="client/newCustomerRegister" target="_blank" tabindex="8">Join Free Now</a></li>
+	                            <li id="registerUrl_1" class="register">
+		                            <a id="J_RegisterLink1" href="client/newCustomerRegister" target="_blank" tabindex="8">
+		                            Join Free Now
+		                            </a>
+	                            </li>
 	                        </ul>
 	                     </form>
 	                </div>
