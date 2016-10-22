@@ -46,7 +46,7 @@
 	var selectLanguageId =parseInt(temp);   //选择的语言id  
 	
 	//错误码
-	var codeError=<s:property value='codeError'/>;
+	var codeError=<s:property value='codeError' escape="false" />;
 	function checkCodeError(data)
 	{
 		if(codeError==1)
@@ -158,12 +158,12 @@
 				                            <input id="checkcode" name="checkcode" value="" type="text" placeholder="Not&nbsp;case-sensitive" tabindex="6" data-valid="false">
 				                            <div class="checkcode" id="refresh-checkcode-btn">
 				                                <img onclick="javascript:clientRegisterRefresh(this);" src="Security/SecurityCodeImageAction?type=1" id="checkcode-img" align="absmiddle">
-				                                <span>Refresh the code</span>
+				                                <span>Click the code to refreash</span>
 				                            </div>
 				                            <div id="checkcode-tipbox" class="error-tipbox hide">Type the right characters you see in the picture</div>
 				                            <script type="text/javascript">
 												//about the code
-												var codeError='<s:property value="codeError"  escape="false" />';
+												//var codeError='<s:property value="codeError"  escape="false" />';
 												function checkInputError()
 												{
 													if(codeError=="1")
@@ -179,7 +179,7 @@
 														$("#email-tipbox").removeClass("hide");
 													}
 												}
-												checkInputError();
+												//checkInputError();
 											</script>
 				                        </dd>
 				                    </dl>

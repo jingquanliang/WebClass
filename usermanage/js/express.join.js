@@ -116,6 +116,11 @@ function checkUserName(element)
 		$("#name-tipbox").removeClass("hide");
 		return false;
 	}
+	else if(username.indexOf("@")>=0)
+	{
+		$("#name-tipbox").removeClass("hide");
+		return false;
+	}
 	else
 	{
 		$("#name-tipbox").addClass("hide");

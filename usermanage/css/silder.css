@@ -9,20 +9,27 @@ ul.quick-menu
     font-size: 14px;
     float: right;
     line-height: 28px;
+    padding-right: 10px;
 	
 }
 ul.quick-menu li.downmenu
 { 
-	float:left; 
+/*	float:left; 
 	margin-right:5px; 
-	padding-right:10px;
-	position:relative
+	padding-right:10px; */
+	position:relative;
 }
 ul.quick-menu li a.downmenu
 { 
-	background:url(../../../images/arrow.gif) no-repeat right center;
+	background:url(../../../images/arrow.gif) no-repeat right center  #fff;;
 	padding-right:8px;
 	z-index: 123000;
+	position: relative;
+	/*margin-right: 5px;*/
+    padding-right: 15px;
+    padding-left: 10px !important;
+    line-height: 28px;
+    display: block;
 	
 
 }
@@ -30,28 +37,27 @@ ul.quick-menu li a.downmenu
 /*下拉菜单*/
 ul.quick-menu  li,ul.quick-menu  li ul li
 {
-	padding-left: 10px !important;
+	/*padding-left: 10px !important;*/
 }
 
-ul.quick-menu  li.downmenu:hover 
+ul.quick-menu  li.downmenu:hover>a
 {
-    background:#F1FBEC;
+    /*background:#F1FBEC;*/
     border:1px solid #9CDD75;
     border-bottom:none;
     color:#666;
-   
 }
 
 
 ul.quick-menu  li  ul 
 {
-    border:1px solid rgb(204, 204, 204);
-    border-top:none;
+    border:1px solid #9CDD75;
+    /*border-top:none;*/
     float:left;
     background:#F1FBEC;
     position:absolute;
     top:28px;
-    left:-1px;
+    left:0px;
     display:none;
     z-index: 123;
     border-radius: 0 2px 2px;
@@ -61,8 +67,8 @@ ul.quick-menu  li  ul
 
 ul.quick-menu  li ul
 {
-	opacity: 0.90;
-    background: #fbfbfb;
+	/*opacity: 0.90;*/
+    background: #fff;
 	
 }
 
@@ -86,6 +92,7 @@ ul.quick-menu  li  ul li a {
     margin: 0;
     padding: 0;
     z-index: 123;
+    padding-left: 10px;
 }
 
 ul.quick-menu  li  ul li:hover {
