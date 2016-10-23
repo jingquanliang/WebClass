@@ -70,7 +70,7 @@
     </select>
     
     <select id="getUserByMail" resultType="admin.ru.own.www.entity.User" parameterType="String">
-        select userid,username,usermail,userpassword from user where usermail=#{mail}
+        select userid,username,usermail,lanid,status,userpassword from user where usermail=#{mail}
     </select>
 
     <update id="updateTimeForgetPass" parameterType="long" flushCache="true"  timeout="20">

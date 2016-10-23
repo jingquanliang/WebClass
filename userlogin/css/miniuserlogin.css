@@ -244,7 +244,7 @@ background-position: 0 0;
 }
 
 #content .login-box .submit button, #content .login-box .static .dynamic-link, #content .login-box .dynamic .static-link {
-background: url(images/btn.png) no-repeat 0 0;
+/*background: url(images/btn.png) no-repeat 0 0;*/
 }
 
 .login-box .submit button {
