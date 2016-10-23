@@ -9,7 +9,7 @@
         <script type="text/javascript" src="common/js/footerinfo.js"></script>
 	</head>
 	<body>
-		<div style="">
+		<div class="footer-content"  style="">
 			  <div id="foot">
 			    <ul class="footer-info">
 			    </ul>
