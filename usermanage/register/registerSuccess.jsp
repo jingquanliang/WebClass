@@ -28,7 +28,7 @@
 <link rel="stylesheet" type="text/css" href="jquery-ui/jquery-ui.css" /> 
 
 <!-- ------------------------------和本网页相关--------------------------------------- -->
-<link href="usermanage/css/active.css" rel="stylesheet" type="text/css" />
+<link href="usermanage/css/registersuccess.css" rel="stylesheet" type="text/css" />
 
 <!-- ------------------------------和本网页相关--------------------------------------- -->
 
@@ -52,10 +52,15 @@
 			<div id="forgotYourPassword">
 				<div class="inner-box">
 					<h2>
-						<s:text name="ActiveSuccess"></s:text>
+						<s:text name="RegisterSuccess"></s:text>
 						<div class="suggest-words">
-							 You have actived your account. 
-							 Please <span><a href="login.jsp">Login in</a>.</span> 
+							An email has send to your mailbox.
+							Please login the mailbox to active your account.
+							Or you can directly <span><a href="login.jsp">Login in</a> 999OWN.</span>
+							IF you have not receive the mail,
+							<span>
+								<a href="client/reSendActivateEmail.action?id=<s:property value='id' />">Click here</a>
+							</span>
 						 </div>
 					</h2>
 				</div>

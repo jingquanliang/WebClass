@@ -53,7 +53,11 @@
 				<div class="inner-box">
 					<h2>
 						<s:text name="ActiveSuccess"></s:text>
-						<div class="suggest-words">You have actived your account,please <span><a href="login.jsp">login in</a>.</span> </div>
+						<div class="suggest-words">
+							You have not actived your account, please retry later!
+							
+							You can directly<span><a href="login.jsp">Login in</a> 999OWN.</span> 
+						</div>
 					</h2>
 				</div>
 			</div>

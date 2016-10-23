@@ -54,9 +54,14 @@
 					<h2>
 						<s:text name="ActiveSuccess"></s:text>
 						<div class="suggest-words">
-							 You have actived your account. 
-							 Please <span><a href="login.jsp">Login in</a>.</span> 
-						 </div>
+							An email has send to your mailbox.
+							Please login the mailbox to active your account.
+							Or you can directly <span><a href="login.jsp">Login in</a> 999OWN.</span>
+							IF you have not receive the mail,
+							<span>
+								<a href="client/reSendActivateEmail.action?id=<s:property value='id' />">Click here</a>
+							</span>
+						</div>
 					</h2>
 				</div>
 			</div>
