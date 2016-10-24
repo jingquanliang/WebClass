@@ -79,6 +79,7 @@ muiSetAmount.reduce=function(obj){
 	if(number<p_minbuyamount) //p_minbuyamount in productshow.js
 	{
 		number=p_minbuyamount;
+		alert(minBuyCountTips); //minBuyCountTips in productshow.js
 	}
 	$(obj).val(number);
 };

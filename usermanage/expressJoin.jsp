@@ -34,6 +34,9 @@
 <link href="usermanage/css/expressJoin.css" rel="stylesheet" type="text/css" />
 
 <link href="usermanage/css/silder.css" rel="stylesheet" type="text/css" />
+
+<!-- 密码，邮箱规则 -->
+<script type="text/javascript" src="usermanage/js/user.util.js"></script>
         
 <script type="text/javascript" src="usermanage/js/express.join.js"></script>
 
@@ -119,7 +122,9 @@
 				                        <dd>
 				                            <span id="email-ph" class="ph-label hide"></span>
 				                            <input id="mail" name="mail" value='<s:property value="mail"  escape="false" />'  onblur="checkIsMail(this)"  type="text" tabindex="1" autocomplete="off" maxlength="128" class="redborder">
-				                            <div id="email-tipbox" class="error-tipbox hide">Please enter a valid Email Address or the email has already registered before</div>
+				                            <div id="email-tipbox" class="error-tipbox hide">
+				                            	Please enter a valid Email Address or the email has already registered before
+				                            </div>
 				                            <div id="email-prompt" class="email-prompt hide" data-index="-1">
 				                                <ul>
 				                                    <li data-domain="@gmail.com"></li>
@@ -136,7 +141,9 @@
 				                        <dd>
 				                            <span id="first-name-ph" class="ph-label hide">First&nbsp;name&nbsp;</span>
 				                            <input id="username" name="username" value='<s:property value="username"  escape="false" />'  onblur="checkUserName(this)"   type="text" class="redborder" placeholder="name&nbsp;" maxlength="128" tabindex="2">
-				                            <div id="name-tipbox" class="error-tipbox hide">Please enter your  name or the name has already registered before</div>
+				                            <div id="name-tipbox" class="error-tipbox hide">
+				                            	Please enter your  name or the name has already registered before
+				                            </div>
 				                        </dd>
 				
 				                        <dt>Create password:</dt>

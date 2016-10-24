@@ -20,7 +20,7 @@
     
     
     <update id="resetPassword"  flushCache="true"  timeout="20">
-        update user  set userpassword=#{1} where userid=#{0}
+        update user  set userpassword=#{1},checkcodeforgetpass="" where userid=#{0}
     </update>
     
     
@@ -52,7 +52,7 @@
     </resultMap>
     
      <select id="getUsersByPageNum" resultMap="allShipping" parameterType="admin.ru.own.www.entity.Pagination">
-        select * from user limit #{offset},#{numberInPage}
+        select * from user order by userid desc limit #{offset},#{numberInPage}
     </select>
     
     <select id="getUserByUserName" resultMap="allShipping"  parameterType="String">
@@ -62,7 +62,7 @@
     
     
     <select id="getUserById" resultType="admin.ru.own.www.entity.User" parameterType="int">
-        select userid,username,userpassword,userrealname,usertel,usermail,lanid,activecode,userlevel,sex,totalbuycount,timeforgetpass,status,createtime,lasttime,jifen from user where userid=#{id}
+        select userid,username,userpassword,userrealname,usertel,usermail,lanid,activecode,checkcodeforgetpass,userlevel,sex,totalbuycount,timeforgetpass,status,createtime,lasttime,jifen from user where userid=#{id}
     </select>
     
     <select id="getUserByNameAndPassword" resultType="admin.ru.own.www.entity.User" parameterType="int">
@@ -74,6 +74,6 @@
     </select>
 
     <update id="updateTimeForgetPass" parameterType="long" flushCache="true"  timeout="20">
-        update user  set timeforgetpass=#{0} where userid=#{1}
+        update user  set timeforgetpass=#{0},checkcodeforgetpass=#{2} where userid=#{1}
     </update>
 </mapper>
