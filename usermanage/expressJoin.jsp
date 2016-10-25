@@ -12,7 +12,7 @@
 <head>
 <base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>999own</title>
+<title>999OWN</title>
 
 <!-- header以下布局 -->
 <link href="common/css/secondstyle.css" rel="stylesheet" type="text/css" />

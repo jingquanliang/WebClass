@@ -45,7 +45,7 @@
         	var insertHtml="";
             if(customeruserid==null||customeruserid==undefined)
             {//没有登录
-            	insertHtml='<s:text name="www.web.welcome"></s:text><span><a class="sn-login" href="login.jsp"><s:text name="www.web.login"></s:text></a></span><span><a  class="sn-register" href="client/newCustomerRegister"><s:text name="www.web.register"></s:text></a></span>';
+            	insertHtml='<s:text name="www.web.welcome"></s:text><span><a class="sn-login" href="login.action"><s:text name="www.web.login"></s:text></a></span><span><a  class="sn-register" href="client/newCustomerRegister"><s:text name="www.web.register"></s:text></a></span>';
             }
             else
             {//登陆
