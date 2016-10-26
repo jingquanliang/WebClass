@@ -201,7 +201,7 @@ function  buildUpInformation(entireTransInfoArgs)
 	var html = "";
 	html+="<table class='altrowstable'>";
 	html+="<tr><td colspan='6' style='text-align: center;'>用户管理</td></tr>";
-	html+="<tr><td class='sevenColume1'>用户名</td><td class='sevenColume3'>真实姓名</td><td class='sevenColume4'>邮箱</td><td class='sevenColume5'>电话</td><td class='sevenColume6'>是否可用</td><td class='sevenColume7'>操作</td></tr>";
+	html+="<tr><td class='sevenColume1'>用户名</td><td class='sevenColume3'>真实姓名</td><td class='sevenColume4'>邮箱</td><td class='sevenColume5'>电话</td><td class='sevenColume6'>状态</td><td class='sevenColume7'>操作</td></tr>";
 	//html+="<tr><td class='sevenColume1'>用户名</td><td class='sevenColume2'>密码</td><td class='sevenColume3'>真实姓名</td><td class='sevenColume4'>邮箱</td><td class='sevenColume5'>电话</td><td class='sevenColume6'>是否可用</td><td class='sevenColume7'>操作</td></tr>";
 	for ( var i1 = 0; i1 < dataRows; i1++)
 	{
@@ -246,9 +246,13 @@ function showConvert(status)
 	{
 		html+="不可用";
 	}
-	else
+	else if(status==1)
 	{
-		html+="可用";
+		html+="没有验证";
+	}
+	else if(status==2)
+	{
+		html+="已验证";
 	}
 	return html;
 }
