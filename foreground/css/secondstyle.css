@@ -2,7 +2,7 @@
 /*layout-three*/
 #second-category-menu{width:100%;position:relative;height: 480px;}
 #category-image-paly{width:100%;position:absolute;top:0px;left:0px;z-index:1;margin: 0 auto;}
-#lagout-three{ width:1190px; height:408px; margin:0 auto; border-top: 2px solid #F27B03;z-index:110}
+#lagout-three,.productsearchresultcontainer{ width:1190px; height:408px; margin:0 auto; border-top: 2px solid #F27B03;z-index:110}
 /*.layout-three-l*/
 .lagout-three-l{position: relative;width:190px;  float:left;z-index: 1000;opacity: 1;}
 
@@ -11,6 +11,11 @@
 
 /**/
 .second-cateogry-list{width:190px;  border-top:0;color: #fff; /* background: url('../img/category_backgr.png') #181818 no-repeat;*/}
+
+/*搜索页需要的容器*/
+.productsearchresultcontainer{
+	height: 100% !important;
+}
 
 #sortlist, #sortlist .mc {
 overflow: visible;
@@ -441,7 +446,7 @@ text-decoration: none;
 #seller{width:100%;/*height:390px;*/margin:15px auto;}
 
 #seller ul{width:100%;/*float:left;*/}
-#seller ul li{/*width:163px;height:195px;*/margin:3px; display: inline-block;    text-align: left;/*float:left;*/}
+#seller ul li{/*width:163px;height:195px;*/margin:18px; display: inline-block;    text-align: left;/*float:left;*/}
 #seller ul li a{display:inline-block; padding-bottom:6px;}
 #seller ul li a.productTitle{word-break: break-all;overflow: hidden;height: 14px;line-height: 20px;}
 #seller ul li a span{ text-decoration:line-through; display:inline-block; padding-right:5px;}

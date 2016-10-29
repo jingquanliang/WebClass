@@ -766,7 +766,7 @@ function insertProductImageInPage(data)
 		}
 	}
 	
-	$(".lh").append(insertHtml);//插入图片
+	$(".lh").append(insertHtml);//插入小图片
 	$("#spec-n1").mui_zoom({markSize : [175, 175],markSizeFlag: true});
 	$("#preview").mui_productSmallImagePlay();
 

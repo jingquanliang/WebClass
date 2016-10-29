@@ -8,6 +8,11 @@ $(document).ready(function() {
 	map = new Map();
 	mapObj=new Map(); //初次加载时使用，存放属性值和名字等信息,key为attrid，value是一个map，存放为属性值的id和名称，当全部遍历完成属性时使用
 });
+/**
+ * 点击商品属性值的动作
+ * @param selectString
+ * @param elem
+ */
 function addAttributeLabel(selectString,elem) 
 {
 	var attrid=elem.attr("atrid");
