@@ -411,7 +411,7 @@
 </style>
 <!-- ----------------------------------------------------------------------------------- -->
 <!-- ------------------------------------------about user login----------------------------------------- -->
-<div id="minilogin-dialog" class="ui-widget" title="Please Login">
+<div id="minilogin-dialog" class="ui-widget" title='<s:text name="www.web.login"></s:text>'>
   <!-- <iframe class="j_minilogin_iframe" style="background: #FFF; margin:0 0 0 0;" width="320" scrolling="no" height="304" frameborder="no" src="userlogin/miniuserlogin.jsp">
 
 	</iframe> --> 

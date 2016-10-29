@@ -12,7 +12,7 @@
 <head>
 <base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>京东</title>
+<title></title>
 
 
 <!-- header以下布局 -->
@@ -52,8 +52,20 @@
 			<div id="forgotYourPassword">
 				<div class="inner-box">
 					<h2>
-						<s:text name="ActiveSuccess"></s:text>
-						<div class="suggest-words">You have actived your account,please <span><a href="login.jsp">login in</a>.</span> </div>
+						<s:text name="reSendActivateEmailError"></s:text>
+						<div class="suggest-words">
+							<span>
+								<a target= _blank href="login.jsp">
+									<s:text name="www.reSendActivateEmailError.SuggestWords.0"></s:text>
+								</a>  999OWN. 
+							</span> 
+							<s:text name="www.reSendActivateEmailError.SuggestWords.1"></s:text>
+							<span>
+								<a target= _blank href="client/reSendActivateEmail.action?id=<s:property value='id' />">
+									<s:text name="www.reSendActivateEmailError.SuggestWords.2"></s:text>
+								</a>
+							</span>
+						</div>
 					</h2>
 				</div>
 			</div>

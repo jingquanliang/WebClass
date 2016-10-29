@@ -12,7 +12,7 @@
 <head>
 <base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>京东</title>
+<title></title>
 
 
 <!-- header以下布局 -->
@@ -52,10 +52,15 @@
 			<div id="forgotYourPassword">
 				<div class="inner-box">
 					<h2>
-						<s:text name="ActiveSuccess"></s:text>
+						<s:text name="ActiveSuccess"></s:text>,
 						<div class="suggest-words">
-							 You have actived your account. 
-							 Please <span><a href="login.jsp">Login in</a>.</span> 
+							 <s:text name="www.activeSuccess.SuggestWords.0"></s:text>
+							 <s:text name="www.activeSuccess.SuggestWords.1"></s:text> 
+							 <span>
+							 	<a target= _blank href="login.jsp"> 
+							 		<s:text name="www.activeSuccess.SuggestWords.2"></s:text>
+							 	</a>.
+							 </span> 
 						 </div>
 					</h2>
 				</div>

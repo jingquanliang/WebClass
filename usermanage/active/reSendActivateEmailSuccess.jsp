@@ -12,7 +12,7 @@
 <head>
 <base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>京东</title>
+<title></title>
 
 
 <!-- header以下布局 -->
@@ -52,14 +52,19 @@
 			<div id="forgotYourPassword">
 				<div class="inner-box">
 					<h2>
-						<s:text name="ActiveSuccess"></s:text>
+						<s:text name="reSendActivateEmailSuccess"></s:text>
 						<div class="suggest-words">
-							An email has send to your mailbox.
-							Please login the mailbox to active your account.
-							Or you can directly <span><a href="login.jsp">Login in</a> 999OWN.</span>
-							IF you have not receive the mail,
+							<s:text name="www.registerSuccess.SuggestWords.0"></s:text>
 							<span>
-								<a href="client/reSendActivateEmail.action?id=<s:property value='id' />">Click here</a>
+								<a target= _blank href="login.jsp">
+									<s:text name="www.registerSuccess.SuggestWords.1"></s:text>
+								</a> 999OWN.
+							</span>
+							<s:text name="www.registerSuccess.SuggestWords.2"></s:text>
+							<span>
+								<a target= _blank href="client/reSendActivateEmail.action?id=<s:property value='id' />">
+									<s:text name="www.registerSuccess.SuggestWords.3"></s:text>
+								</a>
 							</span>
 						</div>
 					</h2>

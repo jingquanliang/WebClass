@@ -51,7 +51,9 @@
 	            <div class="bd">
 	                    <div id="J_Message" style="display:none;" class="login-msg msg">
 	                        
-	                        <p class="error"><s:text name="USERNAMEorPASSWORDwrong"></s:text></p>
+	                        <p class="error">
+	                        	<s:text name="www.login.tips"></s:text>
+	                        </p>
 	                        
 	                    </div>
 	                    <!--登录的错误信息结束-->
