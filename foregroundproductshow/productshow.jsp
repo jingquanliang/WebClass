@@ -105,6 +105,10 @@
 
 <body class="root61">
 
+	<div style="display: none">
+        <%@ include file="../common/language/multiLanguage.jsp" %>
+	</div>
+
 
 	<div id="header">
         <%@ include file="../common/header/headermenu.jsp" %>

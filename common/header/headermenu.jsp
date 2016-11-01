@@ -47,11 +47,11 @@
         	var insertHtml="";
             if(customeruserid==null||customeruserid==undefined)
             {//没有登录
-            	insertHtml='<s:text name="www.web.welcome"></s:text><span><a class="sn-login" href="login.action"><s:text name="www.web.login"></s:text></a></span><span><a  class="sn-register" href="client/newCustomerRegister"><s:text name="www.web.register"></s:text></a></span>';
+            	insertHtml='<s:text name="www.web.welcome"></s:text><span><a target="_blank" class="sn-login" href="login.action"><s:text name="www.web.login"></s:text></a></span><span><a target="_blank"  class="sn-register" href="client/newCustomerRegister"><s:text name="www.web.register"></s:text></a></span>';
             }
             else
             {//登陆
-            	insertHtml='Hello, <a href="client-center/buyerIndex.action" >'+customerusername+'</a><span><a class="sn-logout" href="client/userLogout.action"><s:text name="www.web.logout"></s:text></a></span>';
+            	insertHtml='Hello, <a target="_blank" href="client-center/buyerIndex.action" >'+customerusername+'</a><span><a target="_blank" class="sn-logout" href="client/userLogout.action"><s:text name="www.web.logout"></s:text></a></span>';
 	           
             	//隐藏购物车右边的登陆信息
 	            $(".account-unsigned").css("display","none");
@@ -146,12 +146,13 @@
 			           </li>
 			           -->
 			           <!-- <li class="service"><a href=""><s:text name="www.web.contact.us"></s:text></a></li>  -->
+			           <!-- 
 			           <li>
 			           		<a href="shopcart/cart.jsp" >
 			           			<s:text name="www.web.shopcart"></s:text>
 			           			<strong class="shop-cart-number">0</strong>
 			           		</a>
-			           </li>
+			           </li> -->
 			           <!--  <li><a href=""><s:text name="www.web.wishlist"></s:text></a></li> -->
 			           <!-- 
 			           <li   class="downmenu">
@@ -195,7 +196,7 @@
 			     	<a href="shopcart/cart.jsp" data-spm-anchor-id="2114.11010108.0.26">
 			     		<span class="text"><s:text name="www.web.shopcart"></s:text></span>
 			     	</a>
-			     	<span id="nav-cart-num" class="cart-number shop-cart-number">1</span>
+			     	<span id="nav-cart-num" class="cart-number shop-cart-number">0</span>
 			     </div> <!-- end of 购物车 -->
 			     <!-- wish list -->
 			     <div class="nav-wishlist" data-hover="1">

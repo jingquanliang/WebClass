@@ -883,7 +883,7 @@ function addToCartRegister()
 			dataType : "json",
 			error : function(data) 
 			{
-				alert("sorry,the server has some problems,please contact the website owner,thank you !");
+				alert(messageResourceErrorTips);
 			},
 			success : function(data) 
 			{
@@ -893,7 +893,7 @@ function addToCartRegister()
 				}
 				else
 				{
-					alert("add to cart success！");
+					alert(messageResourceAddToCartTips);
 				}
 			}
 		});// end of ajax
@@ -965,7 +965,7 @@ function userLogin()
 	 
 
 	var minBuyCount=products.p_minbuyamount;  //最少购买量
-	if(count<minBuyCount) alert("please buy "+minBuyCount+"products at least");
+	if(count<minBuyCount) alert(messageResourceMinBuyAccountTips+":"+minBuyCount);
 	 
 	 var params=
 	 {
@@ -983,7 +983,7 @@ function userLogin()
 		dataType : "json",
 		error : function(data) 
 		{
-			alert("sorry,the server has some problems,please contact the website owner,thank you !");
+			alert(messageResourceErrorTips);
 		},
 		success : function(data) 
 		{
@@ -995,7 +995,7 @@ function userLogin()
 			}
 			else
 			{
-				alert("add to cart success！");
+				alert(messageResourceAddToCartTips);
 			}
 		}
 	});// end of ajax
@@ -1114,7 +1114,7 @@ function requestShippingInfoByCountryIdAndTemplateId(countryId,templetId)
 		dataType : "json",
 		error : function(data) 
 		{
-			alert("get shipping data error!!");
+			alert(messageResourceShippingErrorTips);
 		},
 		success : function(data) 
 		{

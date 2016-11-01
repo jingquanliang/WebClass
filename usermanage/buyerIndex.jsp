@@ -151,7 +151,7 @@
 				</div><!-- end of shortcuts -->
 				<!-- mobile app -->
 				<div class="grid-col-container">
-					<div class="me-ui-box mobile-app">
+					<div class="me-ui-box mobile-app" style=" display: none; ">
 						<div class="edu-weixin">
 							<span class="t">AliExpress Mobile App</span>
 							<span class="g">Shop anywhere, anytime!</span>
