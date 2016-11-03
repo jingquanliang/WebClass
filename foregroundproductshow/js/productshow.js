@@ -68,11 +68,11 @@ function loadProductBasicInfo(id)
 		{
 			if(data.status=="200")
 			{
-				alert("请再试刷新一次");
+				alert(messageResourceErrorTips);
 			}
 			else if(data.status=="500")
 			{	
-				alert("服务器崩溃了!!!!");
+				alert(messageResourceErrorTips);
 			}
 			
 		},
@@ -727,11 +727,11 @@ function loadProductImages(id)
 		{
 			if(data.status=="200")
 			{
-				alert("请再试刷新一次");
+				alert(messageResourceErrorTips);
 			}
 			else if(data.status=="500")
 			{	
-				alert("服务器崩溃了!!!!");
+				alert(messageResourceErrorTips);
 			}
 			
 		},
@@ -847,7 +847,7 @@ function addToCartRegister()
 		var minBuyCount=products.p_minbuyamount;  //最少购买量
 		if(count<minBuyCount) 
 		{
-			alert("please buy "+minBuyCount+" products at least");
+			alert(messageResourceMinBuyAccountTips+":"+minBuyCount);
 			return;
 		}
 		

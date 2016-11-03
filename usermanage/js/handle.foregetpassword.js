@@ -43,11 +43,11 @@ function resetPassword()
 		{
 			if(data.status=="200")
 			{
-				alert("链接已经失效，请重新获取密码!!!!");
+				alert(messageResourceLinkFailureTips);
 			}
 			else if(data.status=="500")
 			{	
-				alert("由于服务器原因，修改密码失败!!!!");
+				alert(messageResourceErrorTips);
 			}
 		},
 		success : function(data) 

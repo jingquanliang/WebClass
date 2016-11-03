@@ -4,11 +4,39 @@
 <html>
 	<head>
         <script type="text/javascript">
+        /////////////////////////////////////////通用提示/////////////////////////////////////////////////////
+        	//修改成功	
+        	var messageResourceModifySuccessTips='<s:text name="www.web.modifySuccessTips"></s:text>';
+        	//服务器问题出错提示
+            var messageResourceErrorTips  = '<s:text name="www.web.serverErrorTips"></s:text>';
+            
+            var messageResourceIsEmailTips='<s:text name="www.web.isEmailTips"></s:text>';
+            
+            var messageResourceInputEmailTips='<s:text name="www.web.inputEmailTips"></s:text>';
+            
+            var messageResourceNotHaveEmailTips='<s:text name="www.web.notHaveEmailTips"></s:text>';
+            //邮件已发送
+            var messageResourceEmailSendTips='<s:text name="www.web.emailSendTips"></s:text>';
+            //连接失效
+            var messageResourceLinkFailureTips='<s:text name="www.web.linkFailureTips"></s:text>';
+            
+            //请输入符合要求的密码
+            var messageResourceCorrectPasswordTips='<s:text name="www.web.correctPasswordTips"></s:text>';
+            //两次输入的密码不一致
+            var mRTwicePasswordInConsistentTips='<s:text name="www.web.twicePasswordInConsistent"></s:text>';
+            
+            //添加成功
+            var messageResourceAddSuccessTips='<s:text name="www.web.addSuccessTips"></s:text>';
+            
+            var messageResourceInputUserNameTips='<s:text name="www.web.addSuccessTips"></s:text>';
+            var messageResourceInputPasswordTips='<s:text name="www.web.inputPasswordTips"></s:text>';
+            //请检查密码
+            var messageResourceCheckPasswordTips='<s:text name="www.web.checkPasswordTips"></s:text>';
+
          /////////////////////////////////////商品显示页面///////////////////////////////////////////////////    
         	//加入购物车提示
             var messageResourceAddToCartTips = '<s:text name="www.web.addToCartTips"></s:text>';
-            //服务器问题出错提示
-            var messageResourceErrorTips  = '<s:text name="www.web.serverErrorTips"></s:text>';
+            
             //最小购买量
             var messageResourceMinBuyAccountTips='<s:text name="www.web.minBuyAccountTips"></s:text>';
           	//获取货运信息错误

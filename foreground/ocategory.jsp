@@ -72,6 +72,10 @@
 
 <div class="trunkOld">
 
+	<div style="display: none">
+        <%@ include file="../common/language/multiLanguage.jsp" %>
+	</div>
+
 	<div id="header">
 		<%@ include file="../common/header/headermenu.jsp"%>
 		<%@ include file="../common/header/secondheader.jsp"%>
