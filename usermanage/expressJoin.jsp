@@ -102,7 +102,7 @@
 			    <!-- header -->
 			
 			    <div class="page">
-				   <form action="client/newCustomerRegister.action" name="MemberJoinForm" method="post" id="join-form">
+				   <form action="client/newCustomerRegister.action" name="MemberJoinForm" method="get" id="join-form">
 				           <div class="left-form">
 				                <div class="form-head">
 				                    <h2><s:text name="www.join.createNewAccount"></s:text></h2>
