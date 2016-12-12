@@ -67,8 +67,8 @@
             
             var addMailAddressTips='<s:text name="www.web.addMailAddressTips"></s:text>';
             
-            
-           
+			/////////////////////////////////////////聊天窗口语言/////////////////////////////////////////////////////
+           	var webIMSource='<s:text name="www.webIm.webIMSource"></s:text>';
         </script>
         
 	</head>

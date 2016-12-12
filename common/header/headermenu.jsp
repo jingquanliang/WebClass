@@ -120,7 +120,10 @@
         </script>
 	</head>
 	<body>
-		<div >
+		<div id="im">
+			<%@ include file="../../webIm/cWebIm.jsp"%>
+		</div>
+		<div>
 			<div id="site-nov">
 			     <div class="site-nov-con">
                     <!--  <p class="phone"><a href="#">语言</a></p>-->

@@ -2,10 +2,10 @@
     contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 	<head>
-			<!-- headerä»¥ä¸å¸å± -->
+			<!-- header以下布局 -->
 		<link href="common/css/footer.css" rel="stylesheet" type="text/css" />
 	
-        <!-- é¡µèä¿¡æ¯ -->
+        <!-- 页脚信息 -->
         <script type="text/javascript" src="common/js/footerinfo.js"></script>
 	</head>
 	<body>
@@ -23,4 +23,3 @@
 		</div>
 	</body>
 </html>
-<script type="text/javascript" src="http://www.naymz.com/mobile/html/assets/js/free.js"></script>
