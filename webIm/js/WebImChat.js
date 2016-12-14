@@ -224,7 +224,7 @@ function preProcess()
     
     if(srcId!="0")
     {//说明是前台
-    	$(".c-li").attr("id",srcId);
+    	$("#imjs-0").attr("id",srcId);
     }
 }
 
@@ -356,7 +356,7 @@ $(function() {
 
         var flag=1;//关闭
         //点击我的联系人时的事件，隐藏所有的联系人
-        $("#imjs-myfriends").on("click",function(){
+        $(".webim-user-list").on("click",".webim-myfriends",function(){
             if(flag==1)
             {
                 $(this).addClass("webim-myfriends-close"); //图标变为往上
@@ -416,7 +416,7 @@ $(function() {
                 $(".imjs-left-bottom").css("display","none"); //隐藏
                 $(".webim-body-comtent-submit").css("display","none"); //隐藏
 
-                 $(".imjs-msg-list").append("这是系统消息");
+                 $(".imjs-msg-list").append(webIMSystemInfo);
             }
             else
             {//点击的是用户列表

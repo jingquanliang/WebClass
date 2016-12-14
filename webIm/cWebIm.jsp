@@ -44,7 +44,7 @@
 					<em class="webim-icon-close" title="关闭">&nbsp;</em>
 				</span>
 				<em class="imjs-userstatus webim-username-online">&nbsp;</em>
-				<em class="imjs-username"><strong>系统消息</strong></em>
+				<em class="imjs-username"><strong><s:text name="www.webIm.SystemInfo"></s:text></strong></em>
 			</div>
 			<div id="imjs-lianxiren" class="webim-lianxiren">
 				<!-- webim-comming-msg-->
@@ -56,31 +56,47 @@
 			</div>
 			<div class="webim-user-list" style="display: block;">
 				<div>
-					<div id="imjs-myfriends" class="webim-myfriends c-li">我的联系人</div>
+					<div id="imjs-myfriends" class="webim-myfriends c-li"><s:text name="www.webIm.webIMMyFriends"></s:text></div>
 				</div>
-				<div class="webim-username mCustomScrollbar _mCS_1" id="imjs-user-list" style=""><div class="mCustomScrollBox mCS-light" id="mCSB_1" style="position:relative; height:100%; overflow:hidden; max-width:100%;"><div class="mCSB_container mCS_no_scrollbar" style="position:relative; top:0;">
-					<div id="imjs-main-contact-list">
-					<div id="imjs-main-0-0_0_0_0" style="cursor:pointer" class="webim-system-info c-li c-li-open" data-username="系统消息" data-userstatus="1" data-postid="0_0_0_0" data-posttitle="">
-						System Message
-						<em style="display: none;" class="webim-msg-count">0</em>
+				<div class="webim-username mCustomScrollbar _mCS_1" id="imjs-user-list" style="">
+					<div class="mCustomScrollBox mCS-light" id="mCSB_1" style="position:relative; height:100%; overflow:hidden; max-width:100%;"><div class="mCSB_container mCS_no_scrollbar" style="position:relative; top:0;">
+							<div id="imjs-main-contact-list">
+								<div id="imjs-main-0-0_0_0_0" style="cursor:pointer" class="webim-system-info c-li c-li-open" data-username='<s:text name="www.webIm.SystemInfo"></s:text>' data-userstatus="1" data-postid="0_0_0_0" data-posttitle="">
+									<s:text name="www.webIm.SystemInfo"></s:text>
+									<em style="display: none;" class="webim-msg-count">0</em>
+								</div>
+			                    <div id="imjs-0" class="c-li" style="cursor: pointer;" data-username='<s:text name="www.webIm.adminUser"></s:text>' data-userstatus="0" data-postid="0" data-posttitle="管庄常营精装主卧,交通便利,可短租" data-posturl="http://bj.ganji.com/fang3/2484543170x.htm">
+			                        <em title="删除" class="webim-close">&nbsp;</em>
+			                        <a style="display:none" title="删除" class="webim-close-enter">
+			                        	<s:text name="www.webIm.closeEnter"></s:text>
+			                        </a>
+			                        <em class="webim-status webim-username-offline">&nbsp;</em>
+			                        <em class="webim-username-n"><s:text name="www.webIm.adminUser"></s:text></em>
+			                        <em style="display:none" class="webim-msg-count"></em>
+			                    </div>
+			                     <div id="imjs-main-default" class="c-li" style="cursor:pointer;display:none">
+			                        <em title="删除" class="webim-close">&nbsp;</em>
+			                        <a style="display:none" title="删除" class="webim-close-enter">
+			                        	<s:text name="www.webIm.closeEnter"></s:text>
+			                        </a>
+			                        <em class="webim-status">&nbsp;</em>
+			                        <em class="webim-username-n"></em>
+			                        <em style="display:none" class="webim-msg-count"></em>
+			                    </div>
+		                	</div>
+						</div>
+						<div class="mCSB_scrollTools" style="position: absolute; display: none;">
+								<a class="mCSB_buttonUp" oncontextmenu="return false;"></a>
+								<div class="mCSB_draggerContainer">
+									<div class="mCSB_dragger" style="position: absolute; top: 0px;" oncontextmenu="return false;">
+										<div class="mCSB_dragger_bar" style="position:relative;"></div>
+									</div>
+									<div class="mCSB_draggerRail"></div>
+								</div>
+								<a class="mCSB_buttonDown" oncontextmenu="return false;"></a>
+						</div>
 					</div>
-                    <div id="imjs-0" class="c-li" style="cursor: pointer;" data-username="客服" data-userstatus="0" data-postid="0" data-posttitle="管庄常营精装主卧,交通便利,可短租" data-posturl="http://bj.ganji.com/fang3/2484543170x.htm">
-                        <em title="删除" class="webim-close">&nbsp;</em>
-                        <a style="display:none" title="删除" class="webim-close-enter">删除</a>
-                        <em class="webim-status webim-username-offline">&nbsp;</em>
-                        <em class="webim-username-n">客服</em>
-                        <em style="display:none" class="webim-msg-count"></em>
-                    </div>
-                     <div id="imjs-main-default" class="c-li" style="cursor:pointer;display:none">
-                        <em title="删除" class="webim-close">&nbsp;</em>
-                        <a style="display:none" title="删除" class="webim-close-enter">删除</a>
-                        <em class="webim-status">&nbsp;</em>
-                        <em class="webim-username-n"></em>
-                        <em style="display:none" class="webim-msg-count"></em>
-                    </div>
-
-                </div>
-				</div><div class="mCSB_scrollTools" style="position: absolute; display: none;"><a class="mCSB_buttonUp" oncontextmenu="return false;"></a><div class="mCSB_draggerContainer"><div class="mCSB_dragger" style="position: absolute; top: 0px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar" style="position:relative;"></div></div><div class="mCSB_draggerRail"></div></div><a class="mCSB_buttonDown" oncontextmenu="return false;"></a></div></div></div>
+				</div>
 				<div class="webim-system-msg">
 
 				</div>
@@ -92,7 +108,8 @@
 					<a style="" class="imjs-link" target="_blank" title=" "> </a>
 					<a></a>
 				</div>
-				<div id="imjs-body-content-talk" class="webim-body-content-talk mCustomScrollbar _mCS_2 webim-body-content-talk-h"><div class="mCustomScrollBox mCS-light" id="mCSB_2" style="position:relative; height:100%; overflow:hidden; max-width:100%;overflow: scroll;"><div class="mCSB_container mCS_no_scrollbar" style="position:relative; top:0;">
+				<div id="imjs-body-content-talk" class="webim-body-content-talk mCustomScrollbar _mCS_2 webim-body-content-talk-h">
+				<div class="mCustomScrollBox mCS-light" id="mCSB_2" style="position:relative; height:100%; overflow:hidden; max-width:100%;overflow: scroll;"><div class="mCSB_container mCS_no_scrollbar" style="position:relative; top:0;">
 					<div class="imjs-msg-list">
 						<div class="textalign-left imjs-msg-default">
 							<div class="webim-body-comtent-msg-left imjs-msg-content">content<s>&nbsp;</s></div>
@@ -103,15 +120,22 @@
 							<span class="webim-times imjs-msg-time">time</span>
 						</div>
 					<div class="textalign-left" id="msg_96497935581">
-							<div class="webim-body-comtent-msg-left imjs-msg-content"><div id="msgcontent2_96497935581"><span id="msgcontent_96497935581"></span>亲，账户信息-资源中心功能现已升级，可查询资源的购买、使用、余量及到期日详情。敬请在有效期内使用，逾期未使用的资源将自动失效，如有问题请于2016年12月31日前联系客服4008109058。详情请点击<a href="http://stock.ganji.com/Summary/getSummaryRecord">http://stock.ganji.com/Summary/getSummaryRecord</a>查看</div><s>&nbsp;</s></div>
+							<div class="webim-body-comtent-msg-left imjs-msg-content">
+								<div id="msgcontent2_96497935581">
+									<span id="msgcontent_96497935581"></span>
+									
+									<s:text name="www.webIm.SystemInfo"></s:text>
+								</div><s>&nbsp;</s>
+							</div>
 							<span class="webim-times imjs-msg-time">15:20</span>
 						</div></div>
 					<div id="imjs-msg-mao">
 					</div>
-				</div><div class="mCSB_scrollTools" style="position: absolute; display: none;"><a class="mCSB_buttonUp" oncontextmenu="return false;"></a><div class="mCSB_draggerContainer"><div class="mCSB_dragger" style="position: absolute; top: 0px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar" style="position:relative;"></div></div><div class="mCSB_draggerRail"></div></div><a class="mCSB_buttonDown" oncontextmenu="return false;"></a></div></div></div>
+				</div>
+				<div class="mCSB_scrollTools" style="position: absolute; display: none;"><a class="mCSB_buttonUp" oncontextmenu="return false;"></a><div class="mCSB_draggerContainer"><div class="mCSB_dragger" style="position: absolute; top: 0px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar" style="position:relative;"></div></div><div class="mCSB_draggerRail"></div></div><a class="mCSB_buttonDown" oncontextmenu="return false;"></a></div></div></div>
 				<div class="imjs-left-bottom" style="display: block;">
 					<div class="webim-body-content-tools">
-						<a class="icon-history" style="" href="http://www.ganji.com/vip/my_message_list.php" target="_blank">聊天记录</a>
+						<a class="icon-history" style="display:none;" href="http://www.ganji.com/vip/my_message_list.php" target="_blank">聊天记录</a>
 						<span class="icon-emotions" title="选择表情">&nbsp;</span>
 						<span class="icon-quicktalk" title="快捷回复">&nbsp;</span>
 						<!--<span class="icon-images" title="发送图片">&nbsp;</span>-->
@@ -607,25 +631,27 @@
 									<a class="prevEmotions left-arrow-no" title="上一页" href="javascript:void(0);">&nbsp;</a>
 									<a class="nextEmotions right-arrow" title="下一页" href="javascript:void(0);">&nbsp;</a>
 									</span>
-									<span><a class="normal">默认表情</a></span>
+									<span style="display:none;"><a class="normal">默认表情</a></span>
 								</li>
 								</ul>
 							</div>
 							<div class="eArr"></div>
 						</div></div>
 					<div class="webim-body-content-textarea">
-					<textarea id="imjs-textarea" rows="" cols="" name="" class="webim-textarea" placeholder="点击输入您想询问的问题..."></textarea>
+					<textarea id="imjs-textarea" rows="" cols="" name="" class="webim-textarea" placeholder='<s:text name="www.webIm.textareaTips"></s:text>...'></textarea>
 				</div>
 				</div>
 				<!-- left-bottom end-->
 				<div class="webim-body-comtent-footer">
-					<a class="webim-body-comtent-submit" style="display: block;">发送</a>
-					<a target="_blank" href="http://dingdong.ganji.com/computer.html">多账号叮咚在线！成交更快！立即体验！&gt;&gt;</a>
+					<a class="webim-body-comtent-submit" style="display: block;"><s:text name="www.webIm.comtentSubmit"></s:text></a>
+					<a target="_blank" href="http://dingdong.ganji.com/computer.html">
+						<s:text name="www.webIm.webImUseTips"></s:text> &gt;&gt;
+					</a>
 					<div id="imjs-empty-tip" class="webim-body-footer-tips" style="display:none">
-						<s>&nbsp;</s>发送内容不能为空哦
+						<s>&nbsp;</s><s:text name="www.webIm.emptyTips"></s:text>
 					</div>
 					<div id="imjs-selectuser-tip" class="webim-body-footer-tips" style="display:none">
-						<s>&nbsp;</s>请您选择用户哦
+						<s>&nbsp;</s><s:text name="www.webIm.selectuserTips"></s:text>
 					</div>
 				</div>
 				<!--客户端下载提示-->
@@ -688,7 +714,9 @@
 					</div>
 				</div>
 				<div class="webim-body-comtent-footer">
-				  <a target="_blank" href="http://dingdong.ganji.com/computer.html"> 多账号叮咚在线！成交更快！立即体验！&gt;&gt;</a>
+				  <a target="_blank" href="http://dingdong.ganji.com/computer.html"> 
+				  	<s:text name="www.webIm.webImUseTips"></s:text>&gt;&gt;
+				  </a>
 				</div>
 			</div>
 			<!--默认引导页面-->
