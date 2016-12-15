@@ -69,6 +69,7 @@
             
 			/////////////////////////////////////////聊天窗口语言/////////////////////////////////////////////////////
            	var webIMSource='<s:text name="www.webIm.webIMSource"></s:text>';
+           	var webIMSystemInfo='<s:text name="www.webIm.SystemInfo"></s:text>';
         </script>
         
 	</head>
