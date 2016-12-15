@@ -11,7 +11,8 @@
   <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600,200' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="webIm/css/WebImChat.css">
   <script type="text/javascript" src="webIm/js/cookieOpertate.js"></script>
-  <script type="text/javascript" src="webIm/js/jquery-1.12.1.min.js"></script>
+  <!-- 
+  <script type="text/javascript" src="webIm/js/jquery-1.12.1.min.js"></script>  -->
   <script type="text/javascript" src="webIm/js/reconnecting-websocket.min.js"></script>
   <script type="text/javascript" src="webIm/js/WebImChat.js"></script>
 </head>
