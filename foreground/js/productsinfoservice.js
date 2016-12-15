@@ -58,7 +58,7 @@ function getSearchProducts(pageNum,searchMsg,startPrice,endPrice){
  * @returns {___anonymous_totalNumber}
  */
 function getTotalNumber(map,categoryid,startPrice,endPrice,change) {
-	var attributedata = $.toJSON(map.elements);
+	var attributedata = JSON.stringify(map.elements);
 	$.ajax({type:'POST',
 		url:"category/productfilter_returnTotalNumber.action", 
 		data:{Args:attributedata,categoryid:categoryid,startPrice:startPrice,endPrice:endPrice,isChange:change},
@@ -91,7 +91,7 @@ function activeWindowModle()
  */
 function getProducts(nowPage,map,categoryid,startPrice,endPrice) {
 	unactiveWindowModle(); //是页面不可操作，知道产生商品信息
-	var data = $.toJSON(map.elements);
+	var data = JSON.stringify(map.elements);
 	var html = "";
 	$.post("category/productfilter_getProducts.action", {initPage:nowPage,Args:data,categoryid:categoryid,startPrice:startPrice,endPrice:endPrice},     
 		function (result){
@@ -122,7 +122,7 @@ function getProducts(nowPage,map,categoryid,startPrice,endPrice) {
  */
 function getBaseProducts(url,nowPage,map,categoryid,startPrice,endPrice) {
 	unactiveWindowModle(); //是页面不可操作，知道产生商品信息
-	var data = $.toJSON(map.elements);
+	var data = JSON.stringify(map.elements);
 	var htmldata = "";
 	$.post("category/productfilter_"+"getProducts"+".action",{initPage:nowPage,Args:data,categoryid:categoryid,startPrice:startPrice,endPrice:endPrice},
 	function(data) {
