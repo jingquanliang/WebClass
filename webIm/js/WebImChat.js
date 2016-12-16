@@ -41,10 +41,10 @@ var chatsock; //websocket 发送 内容
 var saveContent={};//保存对话消息,key为对话人的id，list为一个三元组【id（说话人的id），content，timestamp】
 
 var srcId=getCustomeruserid(); //自己的id,
-setCookie("srcId",srcId,0.5);//用cookie，保存自己的id，这样可以再跨页面时使用
+setCookie("srcId",srcId,1);//用cookie，保存自己的id，这样可以再跨页面时使用
 
 var srcName=getCustomerusername(); //自己的用户名,customerusername在headermenu.jsp中
-setCookie("srcName",srcName,0.5);//用cookie，保存自己的name，这样可以再跨页面时使用
+setCookie("srcName",srcName,1);//用cookie，保存自己的name，这样可以再跨页面时使用
 
 var desId="0_0_0_0";//默认："0_0_0_0"表示是系统消息,0是系统管理员，点击相应的用户时候会改变
 var desName="客服";//默认名称，点击相应的用户时候会改变
