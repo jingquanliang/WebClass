@@ -267,7 +267,9 @@ strong, b {
 /*add by jql*/
 .webim-user-list #imjs-main-contact-list  .c-li .webim-username-n{
 	width: 92px;
+	height: 24px;
     overflow: hidden;
+    word-break: break-all;
 }
 
 .webim-username-n em{
