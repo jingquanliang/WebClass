@@ -177,6 +177,13 @@ strong, b {
     left: -1px;
     overflow: hidden;
 }
+#imjs-user-list{
+	height: 95%;
+}
+#imjs-main-contact-list{
+	overflow: scroll;
+    height: 100%;
+}
 /*我的联系人*/
 
 .webim-user-list .c-li, .webim-user-list .c-li-open, .webim-system-info {
