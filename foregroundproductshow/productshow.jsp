@@ -27,8 +27,8 @@
 <link href="common/css/secondsider.css" rel="stylesheet" type="text/css" />
 
 <!-- js和jquery相关 -->
-<script type="text/javascript" src="js/json2.js"></script>
 <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="js/json2.js"></script>
 <script type="text/javascript" src="jquery-ui/jquery-ui.js"></script>
 <link rel="stylesheet" type="text/css" href="jquery-ui/jquery-ui.css" />
 
