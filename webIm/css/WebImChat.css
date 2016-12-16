@@ -246,6 +246,11 @@ strong, b {
     display: none;
     margin: 5px;
 }
+/*add by jql*/
+.webim-user-list #imjs-main-contact-list  .c-li .webim-close{
+	position: absolute;
+    right: 5px;
+}
 .webim-username .c-li a.webim-close-enter {
     cursor: pointer;
     padding: 0 8px;
@@ -258,6 +263,18 @@ strong, b {
 .webim-username em {
     float: left;
 }
+
+/*add by jql*/
+.webim-user-list #imjs-main-contact-list  .c-li .webim-username-n{
+	width: 92px;
+    overflow: hidden;
+}
+
+.webim-username-n em{
+	width: 92px;
+    overflow: hidden;
+}
+
 .webim-username-offline {
     background: rgb(158, 158, 158);
 }
@@ -516,6 +533,12 @@ a {
     margin: 5px;
     color: #fff;
     /* text-align: center; */
+
+}
+/*add by jql*/
+.webim-user-list #imjs-main-contact-list  .c-li .webim-msg-count{
+	position: absolute;
+    right: 5px;
 }
 
 div.ePdefault {
