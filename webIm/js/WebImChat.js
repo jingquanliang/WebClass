@@ -232,7 +232,7 @@ function preProcess()
 $(function() {
     // When we're using HTTPS, use WSS too.
     var ws_scheme = window.location.protocol == "https:" ? "wss" : "ws";
-    chatsock = new ReconnectingWebSocket(ws_scheme + '://' + "54.238.248.80:8000" + "/chat" + "/"+srcId);
+    chatsock = new ReconnectingWebSocket(ws_scheme + '://' + "13.114.104.139:8000" + "/chat" + "/"+srcId);
     //var chatsock = new ReconnectingWebSocket(ws_scheme + '://' + window.location.host + "/chat" + window.location.pathname);
 
     //接收到消息之后的处理
