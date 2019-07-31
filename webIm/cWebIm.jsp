@@ -51,7 +51,8 @@
 			<div id="imjs-lianxiren" class="webim-lianxiren">
 				<!-- webim-comming-msg-->
 				<!--<span class="imjs-allnewmsg-count">0</span>-->
-				<span class="imjs-lianxiren-tip" style="display: inline;">联系人[<span
+				<span class="imjs-lianxiren-tip" style="display: inline;">
+					<s:text 	name="www.webIm.LinkMan"></s:text>[<span
 					class="fc-green">1</span>/<em class="imjs-lianxiren-count">2</em>]
 				</span> <span class="imjs-newmsgcount-tip" style="display: none;">您有<em
 					class="imjs-newmsg-count">1</em>条新消息
