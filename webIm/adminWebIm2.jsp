@@ -1,8 +1,19 @@
 <%@ page language="java" import="java.util.*"
 	contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+<!DOCTYPE html>
 <html>
 <head>
-
+<script type="text/javascript">
+	var customeruserid = 0;
+	var customerusername = "客服";
+</script>
+<base href="<%=basePath%>">
 <meta charset="UTF-8">
 <!-- for HTML5 -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -13,26 +24,11 @@
 	rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="webIm/css/WebImChat.css">
 <script type="text/javascript" src="webIm/js/cookieOpertate.js"></script>
-<!-- 
-  <script type="text/javascript" src="webIm/js/jquery-1.12.1.min.js"></script>  -->
+<script type="text/javascript" src="webIm/js/jquery-1.12.1.min.js"></script>
 <script type="text/javascript"
 	src="webIm/js/reconnecting-websocket.min.js"></script>
-<script type="text/javascript" src="webIm/js/webSocketForOf.js"></script>
-	<script type="text/javascript" src="webIm/js/sockjs-client/sockjs.js"></script>
-	<script type="text/javascript" src="webIm/js/stomp-websocket/stomp.js"></script>
+<script type="text/javascript" src="webIm/js/WebImChat.js"></script>
 </head>
-<script type="text/javascript">
-    var normal_title="122323";
-    document.addEventListener('visibilitychange',function(){ //浏览器切换事件
-        if(document.visibilityState=='hidden') { //状态判断
-            // normal_title=document.title;
-            // document.title='隐藏的标题';
-        }else {
-            // document.title=normal_title;
-            stompClient.send("/cancel/cancelMessageTips", {}, JSON.stringify({"from": getOpenFireListenName()}));
-        }
-    });
-</script>
 <body>
 	<div id="webim2" class="imjs-open">
 		<div class="dingdongadpop" id="webim-show-edv-div"
@@ -59,14 +55,12 @@
 					class="webim-icon-mini" title="最小化">&nbsp;</em> <em
 					class="webim-icon-close" title="关闭">&nbsp;</em>
 				</span> <em class="imjs-userstatus webim-username-online">&nbsp;</em> <em
-					class="imjs-username"><strong><s:text
-							name="www.webIm.SystemInfo"></s:text></strong></em>
+					class="imjs-username"><strong>系统消息</strong></em>
 			</div>
 			<div id="imjs-lianxiren" class="webim-lianxiren">
 				<!-- webim-comming-msg-->
 				<!--<span class="imjs-allnewmsg-count">0</span>-->
-				<span class="imjs-lianxiren-tip" style="display: inline;">
-					<s:text 	name="www.webIm.LinkMan"></s:text>[<span
+				<span class="imjs-lianxiren-tip" style="display: inline;">联系人[<span
 					class="fc-green">1</span>/<em class="imjs-lianxiren-count">2</em>]
 				</span> <span class="imjs-newmsgcount-tip" style="display: none;">您有<em
 					class="imjs-newmsg-count">1</em>条新消息
@@ -76,41 +70,34 @@
 			</div>
 			<div class="webim-user-list" style="display: block;">
 				<div>
-					<div id="imjs-myfriends" class="webim-myfriends c-li">
-						<s:text name="www.webIm.webIMMyFriends"></s:text>
-					</div>
+					<div id="imjs-myfriends" class="webim-myfriends c-li">我的联系人</div>
 				</div>
 				<div class="webim-username mCustomScrollbar _mCS_1"
 					id="imjs-user-list" style="">
 					<div id="imjs-main-contact-list">
 						<div id="imjs-main-0-0_0_0_0" style="cursor:pointer"
-							class="webim-system-info c-li c-li-open"
-							data-username='<s:text name="www.webIm.SystemInfo"></s:text>'
+							class="webim-system-info c-li c-li-open" data-username="系统消息"
 							data-userstatus="1" data-postid="0_0_0_0" data-posttitle="">
-							<s:text name="www.webIm.SystemInfo"></s:text>
-							<em style="display: none;" class="webim-msg-count">0</em>
+							System Message <em style="display: none;" class="webim-msg-count">0</em>
 						</div>
 						<div id="imjs-0" class="c-li" style="cursor: pointer;"
-							data-username='<s:text name="www.webIm.adminUser"></s:text>'
-							data-userstatus="0" data-postid="admin"
+							data-username="客服" data-userstatus="0" data-postid="0"
 							data-posttitle="管庄常营精装主卧,交通便利,可短租"
 							data-posturl="http://bj.ganji.com/fang3/2484543170x.htm">
 							<em title="删除" class="webim-close">&nbsp;</em> <a
-								style="display:none" title="删除" class="webim-close-enter"> <s:text
-									name="www.webIm.closeEnter"></s:text>
-							</a> <em class="webim-status webim-username-offline">&nbsp;</em> <em
-								class="webim-username-n"><s:text name="www.webIm.adminUser"></s:text></em>
-							<em style="display:none" class="webim-msg-count"></em>
+								style="display:none" title="删除" class="webim-close-enter">删除</a>
+							<em class="webim-status webim-username-offline">&nbsp;</em> <em
+								class="webim-username-n">客服</em> <em style="display:none"
+								class="webim-msg-count"></em>
 						</div>
 						<div id="imjs-main-default" class="c-li"
 							style="cursor:pointer;display:none">
 							<em title="删除" class="webim-close">&nbsp;</em> <a
-								style="display:none" title="删除" class="webim-close-enter"> <s:text
-									name="www.webIm.closeEnter"></s:text>
-							</a> <em class="webim-status">&nbsp;</em> <em
-								class="webim-username-n"></em> <em style="display:none"
-								class="webim-msg-count"></em>
+								style="display:none" title="删除" class="webim-close-enter">删除</a>
+							<em class="webim-status">&nbsp;</em> <em class="webim-username-n"></em>
+							<em style="display:none" class="webim-msg-count"></em>
 						</div>
+
 					</div>
 					<div class="mCSB_scrollTools"
 						style="position: absolute; display: none;">
@@ -131,9 +118,8 @@
 			<div class="webim-body-content imjs-body-content"
 				style="display: block;">
 				<div class="webim-body-comtent-talk-tips">
-					&nbsp;&nbsp;
-					<s:text name="www.webIm.webIMSource"></s:text>
-					： <a style="" class="imjs-link" target="_blank" title=" "> </a> <a></a>
+					&nbsp;&nbsp;来源： <a style="" class="imjs-link" target="_blank"
+						title=" "> </a> <a></a>
 				</div>
 				<div id="imjs-body-content-talk"
 					class="webim-body-content-talk mCustomScrollbar _mCS_2 webim-body-content-talk-h">
@@ -157,9 +143,8 @@
 								<div class="textalign-left" id="msg_96497935581">
 									<div class="webim-body-comtent-msg-left imjs-msg-content">
 										<div id="msgcontent2_96497935581">
-											<span id="msgcontent_96497935581"></span>
-
-											<s:text name="www.webIm.SystemInfo"></s:text>
+											<span id="msgcontent_96497935581"></span>亲，账户信息-资源中心功能现已升级，可查询资源的购买、使用、余量及到期日详情。敬请在有效期内使用，逾期未使用的资源将自动失效，如有问题请于2016年12月31日前联系客服4008109058。详情请点击<a
+												href="http://stock.ganji.com/Summary/getSummaryRecord">http://stock.ganji.com/Summary/getSummaryRecord</a>查看
 										</div>
 										<s>&nbsp;</s>
 									</div>
@@ -184,7 +169,7 @@
 				</div>
 				<div class="imjs-left-bottom" style="display: block;">
 					<div class="webim-body-content-tools">
-						<a class="icon-history" style="display:none;"
+						<a class="icon-history" style=""
 							href="http://www.ganji.com/vip/my_message_list.php"
 							target="_blank">聊天记录</a> <span class="icon-emotions" title="选择表情">&nbsp;</span>
 						<span class="icon-quicktalk" title="快捷回复">&nbsp;</span>
@@ -498,8 +483,7 @@
 											href="javascript:void(0);">&nbsp;</a> <a
 											class="nextEmotions right-arrow" title="下一页"
 											href="javascript:void(0);">&nbsp;</a>
-									</span> <span style="display:none;"><a class="normal">默认表情</a></span>
-									</li>
+									</span> <span><a class="normal">默认表情</a></span></li>
 								</ul>
 							</div>
 							<div class="eArr"></div>
@@ -507,26 +491,20 @@
 					</div>
 					<div class="webim-body-content-textarea">
 						<textarea id="imjs-textarea" rows="" cols="" name=""
-							class="webim-textarea"
-							placeholder='<s:text name="www.webIm.textareaTips"></s:text>...'></textarea>
+							class="webim-textarea" placeholder="点击输入您想询问的问题..."></textarea>
 					</div>
 				</div>
 				<!-- left-bottom end-->
 				<div class="webim-body-comtent-footer">
-					<a class="webim-body-comtent-submit" style="display: block;"><s:text
-							name="www.webIm.comtentSubmit"></s:text></a> <a target="_blank"
-						href="http://dingdong.ganji.com/computer.html"> <s:text
-							name="www.webIm.webImUseTips"></s:text> &gt;&gt;
-					</a>
+					<a class="webim-body-comtent-submit" style="display: block;">发送</a>
+					<a target="_blank" href="http://dingdong.ganji.com/computer.html">多账号叮咚在线！成交更快！立即体验！&gt;&gt;</a>
 					<div id="imjs-empty-tip" class="webim-body-footer-tips"
 						style="display:none">
-						<s>&nbsp;</s>
-						<s:text name="www.webIm.emptyTips"></s:text>
+						<s>&nbsp;</s>发送内容不能为空哦
 					</div>
 					<div id="imjs-selectuser-tip" class="webim-body-footer-tips"
 						style="display:none">
-						<s>&nbsp;</s>
-						<s:text name="www.webIm.selectuserTips"></s:text>
+						<s>&nbsp;</s>请您选择用户哦
 					</div>
 				</div>
 				<!--客户端下载提示-->
@@ -581,8 +559,7 @@
 				</div>
 				<div class="webim-body-comtent-footer">
 					<a target="_blank" href="http://dingdong.ganji.com/computer.html">
-						<s:text name="www.webIm.webImUseTips"></s:text>&gt;&gt;
-					</a>
+						多账号叮咚在线！成交更快！立即体验！&gt;&gt;</a>
 				</div>
 			</div>
 			<!--默认引导页面-->
