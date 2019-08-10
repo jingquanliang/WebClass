@@ -1,11 +1,19 @@
 @charset "UTF-8";
+
+#chat-icon{
+    position: fixed;
+    right: 0;
+    bottom: 20px;
+    z-index: 29900;
+}
+
 #webim2 {
     z-index: 2001;
     font: 12px/1.5 arial,\5b8b\4f53;
     color: rgb(75, 75, 75);
     position: fixed;
     right: 0;
-    bottom: 0;
+    bottom: 5px;
     /*top: 50%;*/
     _position: absolute;
     _top: expression(documentElement.scrollTop+documentElement.clientHeight-this.offsetHeight);

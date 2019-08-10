@@ -502,7 +502,7 @@ function receiveMessage (message) {
         showContent(srcid,data.srcContent,data.time,tempJsonMessage);
     }
     else if(srcid==desId)
-    {//如果当前聊天窗口的id和接收到的消息的id一样，则说明是当前聊天窗口的用户发送过来的，显示发过来的内容，这个功能是针对后台的
+    {//如果当前聊天窗口的id和接收到的消息的id一样，则说明是当前聊天窗口的用户发送过来的，显示发过来的内容
         showContent(srcid,data.srcContent,data.time,tempJsonMessage);
     }
     else
@@ -556,24 +556,29 @@ $(function() {
     });
 
     //回复聊天窗口
-    $("#imjs-lianxiren").on("click",function(){
+    $("#restoreDiolag").on("click",function(){
         handleRestoreDialog();
     });
 
     function  handleMinDialog()
     {
-        $("#webim2").removeClass("imjs-open");
-        $(".webim-body-comtent-header").css("display","none"); //隐藏用户列表
-        $(".webim-user-list").css("display","none");
-        $(".webim-body-content").css("display","none");
+        $("#chat-icon").css("display","block");
+        $("#webim2").css("display","none");
+        // $("#webim2").removeClass("imjs-open");
+        // $(".webim-body-comtent-header").css("display","none"); //隐藏用户列表
+        // $(".webim-user-list").css("display","none");
+        // $(".webim-body-content").css("display","none");
     }
 
     function handleRestoreDialog()
     {
+        $("#chat-icon").css("display","none");
+        $("#webim2").css("display","block");
         $("#webim2").addClass("imjs-open");
         $(".webim-body-comtent-header").css("display","block"); //隐藏用户列表
         $(".webim-user-list").css("display","block");
         $(".webim-body-content").css("display","block");
+        $("#imjs-lianxiren").css("display","block")
         $("#imjs-default-guide-page").css("display","none");
     }
 
