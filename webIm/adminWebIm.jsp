@@ -43,7 +43,7 @@
         }
     });
 </script>
-<body  onload="abc()">
+<body>
 	<div id="webim2" class="imjs-open">
 		<div class="dingdongadpop" id="webim-show-edv-div"
 			style="display:none">

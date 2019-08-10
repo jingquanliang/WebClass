@@ -1,3 +1,25 @@
+function checkIsMail(element)
+{
+    var mail=$.trim($(element).val());
+    var flag=isEmail(mail);
+    if(!isLogin() && !isAdminOnline){
+        if(!flag)
+        {
+            $("#13822errorIcon").css("display","block");
+            $("#13822errorMessage").css("display","block");
+            return false;
+        }
+        else
+        {
+            $("#13822errorIcon").css("display","none");
+            $("#13822errorMessage").css("display","none");
+            return true;
+        }
+    }
+
+
+}
+
 //基于用户是否登录生成用户id
 function getCustomeruserid()
 {
@@ -8,7 +30,7 @@ function getCustomeruserid()
         var temp=getCookie("srcId");
         if(temp!="")
             return temp;
-        return "noLogin"+getRandomString();
+        return "noLogin"+getRandomString();  //
     }
     else
         return customeruserid; //customeruserid在headermenu.jsp中
@@ -60,6 +82,9 @@ var desName="客服";//默认名称，点击相应的用户时候会改变
 var messageComeIntervalId;//提示消息到来的interval Id
 
 var s="有消息…".split("");
+
+var isAdminOnline=0;//admin is online flag
+
 function messageComeTipsfunc(){
     s.push(s[0]);
     s.shift();// 去掉数组的第一个元素
@@ -98,10 +123,10 @@ function generateUser(data)
     firstEle.attr("data-username",srcName);
     firstEle.attr("data-userstatus",0); //默认暂时这里不在线处理
 
-    var del=$("<em title='删除' class='webim-close' style='display: none;'>&nbsp;</em>");
+    var del=$("<em title='Delete' class='webim-close' style='display: none;'>&nbsp;</em>");
     firstEle.append(del);
 
-    var delA=$("<a style='display:none' title='删除' class='webim-close-enter'>删除</a>");
+    var delA=$("<a style='display:none' title='Delete' class='webim-close-enter'>Delete</a>");
     firstEle.append(delA);
 
     var usernameStatus=$("<em class='webim-status webim-username-offline'>&nbsp;</em>");
@@ -125,7 +150,7 @@ function generateUser(data)
  * @param srcContent  内容
  * @param timeArgs  时间
  */
-function showContent(talkid,srcContent,timeArgs)
+function showContent(talkid,srcContent,timeArgs,detailMessage)
 {
     var srcId=getOpenFireListenName(); // 这个srcId 应该会覆盖全局变量里面的srcId
 
@@ -138,6 +163,7 @@ function showContent(talkid,srcContent,timeArgs)
         contentDiv.prepend(srcContent);
 
         firstEle.append(contentDiv);
+
 
         var contentTime=$("<span class='webim-times imjs-msg-time'></span>");
         contentTime.text(timeArgs);
@@ -155,6 +181,29 @@ function showContent(talkid,srcContent,timeArgs)
         contentDiv.prepend(contentString);
         firstEle.append(contentDiv);
 
+        if(detailMessage.isAdminOnline==0){ //如果属于不在线的消息，就需要添加上用户名和邮箱信息
+            var contactDiv=$("<div class='webim-body-comtent-msg-left imjs-msg-content'><s>&nbsp;</s></div>");
+
+            var name=detailMessage.name;
+            var contentName="<div>姓名:"+name+"</div>";
+            if(name!=""&&name!=undefined)
+                contactDiv.append(contentName);
+
+            var tel=detailMessage.tel;
+            var contentTel="<div>电话:"+tel+"</div>";
+
+            if(tel!=""&&tel!=undefined)
+                contactDiv.append(contentTel);
+
+            var mail=detailMessage.email;
+            var contentMail="<div>邮箱:"+mail+"</div>";
+            if(mail!=""&&mail!=undefined)
+                contactDiv.append(contentMail);
+
+            firstEle.append(contactDiv);
+        }
+
+
         var contentTime=$("<span class='webim-times imjs-msg-time'></span>");
         contentTime.text(timeArgs);
         firstEle.append(contentTime);
@@ -168,7 +217,7 @@ function showContent(talkid,srcContent,timeArgs)
 
         生成保存内容的数据结构
      */
-function saveContentFunction(sessid,talkid,content,timestamp)
+function saveContentFunction(sessid,talkid,content,timestamp,tempJsonMessage)
 {
     var ss=saveContent[sessid];
     if(ss==null||ss==undefined)
@@ -177,6 +226,7 @@ function saveContentFunction(sessid,talkid,content,timestamp)
     tripleContent.talkid=talkid;
     tripleContent.content=content;
     tripleContent.timestamp=timestamp;
+    tripleContent.tempJsonMessage=tempJsonMessage;
 
     saveContent[sessid].push(tripleContent);
 }
@@ -201,6 +251,28 @@ function handleSendMessage(content)
 
     addToContentWindow(); //自己发送的内容，添加到自己的窗口里
 
+    var name=$.trim($('#13821input').val());
+    var tel=$.trim($('#13823input').val());
+    var mail=$.trim($('#13822input').val());
+    var islogin=isLogin();
+    if(!isAdminOnline && !islogin && (srcId!="admin"&&srcId!=0&&srcId!="0")){ //如果不是后台，且客服不在线，需要填写邮箱和姓名等信息
+        if(!isEmail(mail)){
+            $("#13822errorIcon").css("display","block");
+            $("#13822errorMessage").css("display","block");
+            return;
+        }
+        if(name==""||name=="undefined"){
+            $("#13821errorIcon").css("display","block");
+            $("#13821errorMessage").css("display","block");
+            return;
+        }
+        if(tel==""||tel=="undefined"){
+            $("#13823errorIcon").css("display","block");
+            $("#13823errorMessage").css("display","block");
+            return;
+        }
+    }
+
     //发送到对方客户端
     var message = {
         srcId:getOpenFireListenName(),
@@ -210,7 +282,11 @@ function handleSendMessage(content)
         srcContent:content, //我所说的话
         desContent:content, //对方所说的话，为空
         time:getNowFormatDate(),
-        message: content
+        message: content,
+        isAdminOnline:isAdminOnline,
+        name:name,
+        email:mail,
+        tel:tel
     };
     var url="/foo/"+getOpenFireSocketUserName()+"/"+getSocketToken();
     stompClient.send(url, {}, JSON.stringify({'content': JSON.stringify(message)}));
@@ -289,8 +365,24 @@ function cancelMessageTips() {
     document.title="";
 }
 
+function adminOnLineTips(message){
+    if(message.content=="0" || message.content==0){
+        isAdminOnline=0;
+        $(".adminStatusEm").removeClass("webim-username-online");
+        $(".adminStatusEm").addClass("webim-username-offline");
+    }
+
+    else
+    {
+        isAdminOnline=1;
+        $(".adminStatusEm").removeClass("webim-username-offline");
+        $(".adminStatusEm").addClass("webim-username-online");
+    }
+
+}
+
 function connect() {
-    var url = "http://13.231.165.68:8888";
+    var url = "http://127.0.0.1:8888";
 
     var name = getOpenFireSocketUserName();
     var token =getSocketToken();
@@ -306,7 +398,19 @@ function connect() {
         //     showGreeting(JSON.parse(greeting.body).content);
         // });
 
-        //订阅服务器端周期性发送的广播消息
+        //订阅客服上线的广播的消息
+        stompClient.subscribe('/topic/adminStatus',function(response){
+            var code=JSON.parse(response.body);
+            adminOnLineTips(code);
+        });
+
+        //订阅查询服务端状态的消息
+        stompClient.subscribe('/user/' + getOpenFireListenName() +'/querey/adminStatus',function(response){
+            var code=JSON.parse(response.body);
+            adminOnLineTips(code);
+        });
+
+        //订阅查询客服在线状态的消息
         stompClient.subscribe('/user/' + getOpenFireListenName() +'/cancel/MsgTips',function(response){
             cancelMessageTips();
         });
@@ -318,20 +422,8 @@ function connect() {
             receiveMessage(code) //websocket接收到消息之后的处理
         });
         // 原文：https://blog.csdn.net/liyongzhi1992/article/details/81221103
-
-        // //发送到对方客户端
-        // var message = {
-        //     srcId:srcId,
-        //     desId:desId,  //对方的id，0代表着系统管理员
-        //     srcName:srcName,
-        //     desName:desName,
-        //     srcContent:content, //我所说的话
-        //     desContent:content, //对方所说的话，为空
-        //     time:getNowFormatDate(),
-        //     message: content
-        // }
-
-        stompClient.send("/foo/connectOpenF/openfire", {}, JSON.stringify({"content": name,"password":token}));
+        var cmd="/foo/connectOpenF/"+getOpenFireListenName();
+        stompClient.send(cmd, {}, JSON.stringify({"content": name,"password":token}));
 
     });
 }
@@ -367,9 +459,9 @@ function receiveMessage (message) {
 
     //保存内容
     if(srcid!=srcId) //说明是接收到的别人发送的消息
-        saveContentFunction(srcid,srcid,data.srcContent,data.time);
+        saveContentFunction(srcid,srcid,data.srcContent,data.time,tempJsonMessage);
     else//说明是接收到的自己发送的消息
-        saveContentFunction(desid,srcid,data.srcContent,data.time);
+        saveContentFunction(desid,srcid,data.srcContent,data.time,tempJsonMessage);
 
     var id="imjs-"+srcid;  //此说话用户的id
     var eles=$("#"+id); //此说话用户的元素
@@ -406,11 +498,11 @@ function receiveMessage (message) {
         if(desid==desId)//如果当前页面，正好是和对应用户的聊天页面，显示即可
             // tempJsonMessage=$.parseJSON(data.srcContent)
             // showContent(srcid,tempJsonMessage.message,data.time);
-        showContent(srcid,data.srcContent,data.time);
+        showContent(srcid,data.srcContent,data.time,tempJsonMessage);
     }
     else if(srcid==desId)
     {//如果当前聊天窗口的id和接收到的消息的id一样，则说明是当前聊天窗口的用户发送过来的，显示发过来的内容，这个功能是针对后台的
-        showContent(srcid,data.srcContent,data.time);
+        showContent(srcid,data.srcContent,data.time,tempJsonMessage);
     }
     else
     {//提示消息即可，不用立即显示，消息已经保存在内存中，也就是saveContent中
@@ -509,20 +601,19 @@ $(function() {
         var hasClassFlag=$(this).hasClass("webim-system-info");
         if(!hasClassFlag)
         {//不是系统消息
-            $(this).children(".webim-close").css("display","block");
+            // $(this).children(".webim-close").css("display","block");
         }
     }).on("mouseleave",".c-li",function(){
         var hasClassFlag=$(this).hasClass("webim-system-info");
         if(!hasClassFlag)
         {//不是系统消息
-            $(this).children(".webim-close").css("display","none");
+            // $(this).children(".webim-close").css("display","none");
         }
     });
 
     //点击用户列表右边删除按钮时的动作
     $("#imjs-main-contact-list .c-li .webim-close").on("click",function(event){
         event.stopPropagation();
-
     });
 
     //点击用户列表中的对话人时的事件
@@ -580,7 +671,7 @@ $(function() {
             for(var i=0;i<len;i++)
             {
                 var ele=allContentTriple[i];
-                showContent(ele.talkid,ele.content,ele.timestamp);
+                showContent(ele.talkid,ele.content,ele.timestamp,ele.tempJsonMessage);
             }
         }
 
@@ -594,17 +685,17 @@ $(function() {
         $(".webim-body-comtent-header > .imjs-username").html(nameStrong);
 
         //在线状况
-        var OnLineStatus=$(ele).attr("data-userstatus");
-        if(OnLineStatus==1)
-        {//在线
-            $(".webim-body-comtent-header > .imjs-userstatus").removeClass("webim-username-offline");
-            $(".webim-body-comtent-header > .imjs-userstatus").addClass("webim-username-online");
-        }
-        else
-        {
-            $(".webim-body-comtent-header > .imjs-userstatus").addClass("webim-username-offline");
-            $(".webim-body-comtent-header > .imjs-userstatus").removeClass("webim-username-online");
-        }
+        // var OnLineStatus=$(ele).attr("data-userstatus");
+        // if(OnLineStatus==1)
+        // {//在线
+        //     $(".webim-body-comtent-header > .imjs-userstatus").removeClass("webim-username-offline");
+        //     $(".webim-body-comtent-header > .imjs-userstatus").addClass("webim-username-online");
+        // }
+        // else
+        // {
+        //     $(".webim-body-comtent-header > .imjs-userstatus").addClass("webim-username-offline");
+        //     $(".webim-body-comtent-header > .imjs-userstatus").removeClass("webim-username-online");
+        // }
     }
 
     /**
