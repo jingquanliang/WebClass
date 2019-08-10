@@ -39,8 +39,10 @@ function getCustomeruserid()
         flag=containsStr(temp,"noLogin")
         if(flag && temp!="")
             return temp;
-        else
+        else{
+            removeCookie("srcId");
             return "noLogin"+getRandomString();  //
+        }
     }
     else
         return customeruserid; //customeruserid在headermenu.jsp中
