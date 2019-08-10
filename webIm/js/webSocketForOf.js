@@ -73,7 +73,7 @@ setCookie("srcName",srcName,1);//用cookie，保存自己的name，这样可以�
 
 //该字段表示当前聊天窗口的人的id
 //默认："0_0_0_0"表示是系统消息，系统消息也就是群发的消息,admin是系统管理员，点击相应的用户时候会改变
-var desId="0_0_0_0";
+var desId="admin";
 
 
 var desName="客服";//默认名称，点击相应的用户时候会改变
@@ -382,8 +382,9 @@ function adminOnLineTips(message){
 }
 
 function connect() {
-    var url = "http://13.231.165.68:8888";
+    // var url = "http://127.0.0.1:8888";
 
+    var url = "http://13.231.165.68:8888";
     var name = getOpenFireSocketUserName();
     var token =getSocketToken();
 
