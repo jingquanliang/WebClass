@@ -1,3 +1,11 @@
+function containsStr(str,subStr){
+    index=str.indexOf(subStr)
+    if(index != -1)
+        return true;
+    else
+        return false;
+}
+
 function checkIsMail(element)
 {
     var mail=$.trim($(element).val());
@@ -28,9 +36,11 @@ function getCustomeruserid()
 
     if(customeruserid==null||customeruserid==undefined){ //未登录
         var temp=getCookie("srcId");
-        if(temp!="")
+        flag=containsStr(temp,"noLogin")
+        if(flag && temp!="")
             return temp;
-        return "noLogin"+getRandomString();  //
+        else
+            return "noLogin"+getRandomString();  //
     }
     else
         return customeruserid; //customeruserid在headermenu.jsp中
@@ -382,9 +392,9 @@ function adminOnLineTips(message){
 }
 
 function connect() {
-    // var url = "http://127.0.0.1:8888";
+    // var url = "http://13.231.165.68:8888";
 
-    var url = "http://13.231.165.68:8888";
+    var url = "http://127.0.0.1:8888";
     var name = getOpenFireSocketUserName();
     var token =getSocketToken();
 
