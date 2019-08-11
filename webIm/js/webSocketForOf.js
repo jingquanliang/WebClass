@@ -394,9 +394,9 @@ function adminOnLineTips(message){
 }
 
 function connect() {
-    // var url = "http://13.231.165.68:8888";
-
     var url = "http://13.231.165.68:8888";
+
+    // var url = "http://127.0.0.1:8888";
     var name = getOpenFireSocketUserName();
     var token =getSocketToken();
 
@@ -773,7 +773,7 @@ $(function() {
 
     $(".ePanelarea > li > a").on("click",function(){
         var number=$(this).attr("emotionid");
-        var imgele="<img src='http://sta.ganjistatic1.com/src/tool/webim_v2/img/emotions/"+number+".gif'>";
+        var imgele="<img src='images/emotion/"+number+".gif'>";
 
         //隐藏表情面板,如果这句注释，那么下面那句也要注释，否则会出现表情况隐藏不掉的问题
         $("#imjs-emotion").css("display","none");

@@ -257,8 +257,7 @@
 								class="webim-quick-submit-arrow">&nbsp;</span>
 						</div>
 						<div id="imjs-emotion" class="ePanel" style="display:none">
-							<div class="ePdefault"
-								style="left: 3px; right: auto;display: none;">
+							<div class="ePdefault" style="left: 3px; right: auto;display: none;">
 								<img
 									src="http://sta.ganjistatic1.com/src/tool/webim/image/emotions/79.gif">
 								<span>强</span>
