@@ -394,7 +394,7 @@ function adminOnLineTips(message){
 }
 
 function connect() {
-    var url = "http://18.179.21.4:222";
+    var url = "http://54.238.98.28:222";
 
     // var url = "http://127.0.0.1:8888";
     var name = getOpenFireSocketUserName();
