@@ -204,11 +204,11 @@ function loadCartDetailedInfo()
 		{
 			if(data.status=="200")
 			{
-				alert(messageResourceErrorTips);
+				// alert(messageResourceErrorTips);
 			}
 			else if(data.status=="500")
 			{	
-				alert(messageResourceErrorTips);
+				// alert(messageResourceErrorTips);
 			}
 			
 		},
@@ -306,7 +306,7 @@ function insertShopCartItemsInPage(shopCartList)
 		//最少购买数量
 		insertHtml+="<input class='hid-minbuyamount' type='hidden' value='"+pbvo.p_minbuyamount+"'>";
 		
-		insertHtml+="<span class='stock-tips'>"+messageResourceStockTips+"</span>";
+		// insertHtml+="<span class='stock-tips'>"+messageResourceStockTips+"</span>";
 		insertHtml+=" </td>";
 		
 		//price
