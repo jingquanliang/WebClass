@@ -8,7 +8,7 @@
   
    <!-- 修改打折信息-->
     <update id="saveDiscountInfoForOrder"  parameterType="ru.own.www.entity.Order" flushCache="true">
-        update  own.order set reducefee=#{reducefee},reducefeereason=#{reducefeereason} where id=#{id}
+        update  own.order set currencyrate=#{currencyrate},reducefee=#{reducefee},reducefeereason=#{reducefeereason} where id=#{id}
     </update>
   
     
@@ -126,6 +126,7 @@
 		    <result property="mailfee" column="mailfee"/>
 			<result property="currencyId" column="currencyId"/>
 			<result property="currencyrate" column="currencyrate"/>
+			<result property="productCurrencyRate" column="productCurrencyRate"/>
 		    <result property="usejifen" column="usejifen"/>
 		    <result property="givejifen" column="givejifen"/>
 		    <result property="userip" column="userip"/>
